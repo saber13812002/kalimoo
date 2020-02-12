@@ -1,0 +1,8 @@
+
+.cycle-slideshow img{width:100%;height:auto;}
+.cycle-slideshow  div{float:none;}
+
+/*If using Jquery Enhanced*/
+.cycle-carousel-wrap{top:0 !important;}
+
+
