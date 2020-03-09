@@ -21,7 +21,7 @@
         watch: {
             $route(to, from) {
                 document.title = to.meta.title;
-                if (to.params.ID)
+                if (to.params.ID || to.path === '/admin/orders-list')
                 {
                     if (this.peyk === 1)
                     {
@@ -75,7 +75,7 @@
                     }
                 })
                     .then(res => {
-                        if (this.$route.params.ID)
+                        if (this.$route.params.ID || this.$route.path === '/admin/orders-list')
                         {
                             if (res.data.type === 'peyk')
                             {

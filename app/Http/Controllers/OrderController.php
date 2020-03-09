@@ -24,6 +24,7 @@ class OrderController extends Controller
             'message' => "delivery man is set"
         ]);
     }
+
     public function verify($id)
     {
         $order = Order::find($id);
@@ -182,7 +183,7 @@ class OrderController extends Controller
 
         if ($order)
         {
-            if ($order->user->id === $user->id || $user->type === 'admin')
+            if ($order->user->id === $user->id || $user->type === 'admin' || $user->type === 'peyk')
             {
                 if ($user->type === 'admin')
                 {
@@ -200,6 +201,9 @@ class OrderController extends Controller
                 }
                 else
                 {
+                    $delivery_man = User::find($order->delivery_man_id);
+                    unset($delivery_man['api_token']);
+                    $order['delivery_man'] = $delivery_man;
                     return new JsonResponse([
                         'message' => "it's ok" ,
                         'tracking_code' => $order->tracking_code ,

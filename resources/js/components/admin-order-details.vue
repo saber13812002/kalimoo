@@ -53,10 +53,12 @@
 
                 <div class="orderr-bottom-right-inside">
                     <span class="title-4"> نام پیک  : </span>
-                    <span class="title-4"> {{order.order.delivery_man.first_name}} {{order.order.delivery_man.last_name}} </span>
+                    <span class="title-4" v-if="order.order.delivery_man">
+                        {{order.order.delivery_man.first_name}} {{order.order.delivery_man.last_name}}
+                    </span>
                 </div>
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-6" v-if="admin === 1">
                     <label for="inputState">انتخاب پیک</label>
                     <select id="inputState" v-model="deliveryID" class="form-control" @change="set_delivery($route.params.ID)">
                         <option selected>انتخاب کنید ...</option>
@@ -208,7 +210,7 @@
                     })
                     .catch(err => {
                         console.log(err.response);
-                        window.location = '/404'
+                      //  window.location = '/404'
                     })
             } ,
             get_order_products() {

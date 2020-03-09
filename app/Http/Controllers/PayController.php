@@ -26,7 +26,6 @@ class PayController extends Controller
                 Pay::create([
                     'transaction_id' => $transactionId
                 ]);
-
             }
             )->pay()->getTargetUrl();
 

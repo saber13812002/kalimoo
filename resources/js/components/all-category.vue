@@ -32,6 +32,483 @@
 
 
 
+
+
+        <!--<div class="col- col-xs col-sm col-md col-lg col-xl-12" style="direction: ltr;">-->
+            <!--<center>-->
+                <!--<div class="col- col-xs col-sm col-md col-lg col-xl-12">-->
+                    <!--<div class="owl-carousel owl-theme vertical-divider">-->
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-xs col-sm col- col-md col-lg col-xl- item">-->
+                            <!--<div class="product-box-hover">-->
+                                <!--<div class="product-box">-->
+                                    <!--<div class="action-btn-slideshow">-->
+                                        <!--<div class="box">-->
+                                            <!--<a href="#"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="product-offer-slideshow">-->
+                                        <!--<span class="text-white">99%-</span>-->
+                                    <!--</div><a href="#">-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">-->
+                                        <!--<div class="preview-image-slideshow"><img class="product-image-size-slideshow" src="img/product/large3.png"></div>-->
+                                        <!--<div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>-->
+                                    <!--</div></a>-->
+                                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">-->
+                                        <!--<a href="#">-->
+                                            <!--<div class="product-info-name">-->
+                                                <!--<span class="text-span-big-slideshow black">گیلاس درجه یک</span>-->
+                                            <!--</div></a>-->
+                                        <!--<div class="product-info-price">-->
+                                            <!--<span class="text-span-small-slideshow green">155/000تومان</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="review">-->
+                                        <!--<hr class="hr-review-slideshow">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</center>-->
+        <!--</div>-->
+
         <div class="col-xs col-sm col- col-md col-lg col-xl-12 slideshow-index">
             <div class="col-xs col-sm col- col-md col-lg col-xl-12 slideshow-index-subject">
                 <span class="">جدیدترین محصولات </span>

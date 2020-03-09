@@ -5383,3 +5383,18 @@ height: 120px;
 /*/////////////////////[end-pay-Successful]/////////*/
 /*/////////////////////[end-footer]//////////////////////////////*/
 /*/////////erorha/////*/
+
+.zf-product-slider-one{
+	direction: rtl;
+}
+.slick-slide{
+	margin: 0 15px !important;
+
+
+}
+.slick-slide img{
+	width:100%
+}
+.slick-track{
+	/* margin-left: -40%;*/
+}

@@ -82,6 +82,10 @@ Route::get('/payment-error', function () {
     return view('payment-error');
 })->name('pay.error');
 
+Route::get('/cafebazaar', function () {
+    return view('cafebazaar');
+});
+
 Route::get('/zarinpal/callback/{price}' ,'PayController@callback')->name('zarinpal.verify');
 
 

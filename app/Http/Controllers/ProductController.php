@@ -43,6 +43,7 @@ class ProductController extends Controller
                 'number' => $request->number ,
                 'discount' => $request->discount ,
                 'brand_id' => $request->brand_id ,
+                'limit' => $request->limit ,
                 'main_category_id' => $cat->main->id ,
                 'secondary_category_id' => $cat->second->id,
                 'third_category_id' => $request->third_category_id ,
@@ -59,6 +60,7 @@ class ProductController extends Controller
                 'number' => $request->number ,
                 'discount' => $request->discount ,
                 'brand_id' => $request->brand_id ,
+                'limit' => $request->limit ,
                 'main_category_id' => $cat->main->id ,
                 'secondary_category_id' => $cat->second->id,
                 'third_category_id' => $cat->id ,
@@ -594,7 +596,7 @@ class ProductController extends Controller
     public function isAvailable(Request $request)
     {
         $validata = Validator::make($request->all() , [
-            'products' => 'required|' ,
+            'products' => 'required' ,
         ]);
 
         if ($validata->fails())
@@ -616,14 +618,16 @@ class ProductController extends Controller
         if (empty($res))
         {
             return response()->json([
-                'message' => 'it is ok to buy'
+                'message' => ['it is ok to buy'] ,
+                'status' => 'success'
             ]);
         }
         else
         {
             return response()->json([
-                'message' => $res
-            ] , 400);
+                'message' => $res ,
+                'status' => 'error'
+            ] , 200);
         }
 
     }

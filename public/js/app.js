@@ -3410,6 +3410,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "admin-order-details",
   created: function created() {
@@ -3511,8 +3513,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this4.get_order_products();
       })["catch"](function (err) {
-        console.log(err.response);
-        window.location = '/404';
+        console.log(err.response); //  window.location = '/404'
       });
     },
     get_order_products: function get_order_products() {
@@ -3572,7 +3573,7 @@ __webpack_require__.r(__webpack_exports__);
     $route: function $route(to, from) {
       document.title = to.meta.title;
 
-      if (to.params.ID) {
+      if (to.params.ID || to.path === '/admin/orders-list') {
         if (this.peyk === 1) {
           this.access = 1;
         }
@@ -3620,7 +3621,7 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: "Bearer ".concat(localStorage.token)
         }
       }).then(function (res) {
-        if (_this.$route.params.ID) {
+        if (_this.$route.params.ID || _this.$route.path === '/admin/orders-list') {
           if (res.data.type === 'peyk') {
             _this.admin = 0;
             _this.peyk = 1;
@@ -3662,6 +3663,483 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5333,6 +5811,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "card-address-content-right",
   // props:['user'] ,
@@ -6006,18 +6485,21 @@ var moment = __webpack_require__(/*! jalali-moment */ "./node_modules/jalali-mom
       }).then(function (res) {
         console.log(res);
 
-        _this.checkPayMethod();
+        if (res.data.status === 'success') {
+          _this.checkPayMethod();
+        } else if (res.data.status === 'error') {
+          res.data.message.forEach(function (error) {
+            _this.$toasted.error(error, {
+              position: 'bottom-center',
+              theme: 'bubble',
+              fitToScreen: true,
+              fullWidth: true,
+              className: ['your-custom-class']
+            }).goAway(3000);
+          });
+        }
       })["catch"](function (err) {
         console.log(err.response);
-        err.response.data.message.forEach(function (error) {
-          _this.$toasted.error(error, {
-            position: 'bottom-center',
-            theme: 'bubble',
-            fitToScreen: true,
-            fullWidth: true,
-            className: ['your-custom-class']
-          }).goAway(3000);
-        });
       });
     },
     chunk: function chunk(myArray, chunk_size) {
@@ -73882,72 +74364,82 @@ var render = function() {
                   _vm._v(" نام پیک  : ")
                 ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "title-4" }, [
-                  _vm._v(
-                    " " +
-                      _vm._s(_vm.order.order.delivery_man.first_name) +
-                      " " +
-                      _vm._s(_vm.order.order.delivery_man.last_name) +
-                      " "
-                  )
-                ])
+                _vm.order.order.delivery_man
+                  ? _c("span", { staticClass: "title-4" }, [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.order.order.delivery_man.first_name) +
+                          " " +
+                          _vm._s(_vm.order.order.delivery_man.last_name) +
+                          "\n                "
+                      )
+                    ])
+                  : _vm._e()
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group col-md-6" }, [
-                _c("label", { attrs: { for: "inputState" } }, [
-                  _vm._v("انتخاب پیک")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.deliveryID,
-                        expression: "deliveryID"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "inputState" },
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.deliveryID = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        },
-                        function($event) {
-                          return _vm.set_delivery(_vm.$route.params.ID)
-                        }
-                      ]
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { selected: "" } }, [
-                      _vm._v("انتخاب کنید ...")
+              _vm.admin === 1
+                ? _c("div", { staticClass: "form-group col-md-6" }, [
+                    _c("label", { attrs: { for: "inputState" } }, [
+                      _vm._v("انتخاب پیک")
                     ]),
                     _vm._v(" "),
-                    _vm._l(_vm.peyks, function(item) {
-                      return _c("option", { domProps: { value: item.id } }, [
-                        _vm._v(
-                          _vm._s(item.first_name) + " " + _vm._s(item.last_name)
-                        )
-                      ])
-                    })
-                  ],
-                  2
-                )
-              ]),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.deliveryID,
+                            expression: "deliveryID"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { id: "inputState" },
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.deliveryID = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                            function($event) {
+                              return _vm.set_delivery(_vm.$route.params.ID)
+                            }
+                          ]
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { selected: "" } }, [
+                          _vm._v("انتخاب کنید ...")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.peyks, function(item) {
+                          return _c(
+                            "option",
+                            { domProps: { value: item.id } },
+                            [
+                              _vm._v(
+                                _vm._s(item.first_name) +
+                                  " " +
+                                  _vm._s(item.last_name)
+                              )
+                            ]
+                          )
+                        })
+                      ],
+                      2
+                    )
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _c("div", { staticClass: "orderr-bottom-right-inside" }, [
                 _c("span", { staticClass: "title-4" }, [_vm._v(" سفارش :  ")]),
@@ -82422,6 +82914,11 @@ var render = function() {
         "div",
         { staticClass: "col-xs col-sm col- col-md-12 col-lg-12 col-xl-12" },
         [
+          _c("div", {
+            staticStyle: { width: "400px", height: "300px" },
+            attrs: { id: "map" }
+          }),
+          _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
           _c(

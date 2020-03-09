@@ -1,6 +1,7 @@
 <template>
     <div class="col-xs col-sm col- col-md-9 col-lg-9 col-xl-9  buy-card-right">
         <div class="col-xs col-sm col- col-md-12 col-lg-12 col-xl-12">
+            <div id="map" style="width: 400px; height: 300px;"></div>
             <div class="col-xs col-sm col- col-md col-lg col-xl-12  buy-card-right-top">
                 <span>  انتخاب آدرس تحویل سفارش </span>
             </div>

@@ -186,20 +186,26 @@
                 })
                     .then(res => {
                         console.log(res);
-                        this.checkPayMethod();
+                        if (res.data.status === 'success')
+                        {
+                            this.checkPayMethod();
+                        }
+                        else if (res.data.status === 'error')
+                        {
+                            res.data.message.forEach(error => {
+                                this.$toasted.error(error , {
+                                    position: 'bottom-center' ,
+                                    theme: 'bubble' ,
+                                    fitToScreen: true ,
+                                    fullWidth: true ,
+                                    className: ['your-custom-class']
+                                }).goAway(3000);
+                            })
+                        }
+
                     })
                     .catch(err => {
                         console.log(err.response);
-                        err.response.data.message.forEach(error => {
-                            this.$toasted.error(error , {
-                                position: 'bottom-center' ,
-                                theme: 'bubble' ,
-                                fitToScreen: true ,
-                                fullWidth: true ,
-                                className: ['your-custom-class']
-                            }).goAway(3000);
-                        })
-
                     });
             } ,
             chunk(myArray , chunk_size) {

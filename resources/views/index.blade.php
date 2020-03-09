@@ -4,6 +4,7 @@
     <!-- Title Page-->
     <title>{{ $title }}</title><!-- Required meta tags-->
     <meta charset="UTF-8">
+    <meta name="enamad" content="781521">
     <meta content="width=device-width" name="viewport">
     <meta content="{{ $description }}" name="description">
     <meta content="{{ $keywords }}" name="keywords">
@@ -32,6 +33,8 @@
     <link href="/css/menu-responsive/toggle.css" rel="stylesheet" type="text/css">
     <link href="/css/login-register/login.css" rel="stylesheet" type="text/css">
     <link href="/css/login-register/register.css" rel="stylesheet" type="text/css">
+    <script src='https://api.cedarmaps.com/cedarmaps.js/v1.8.1/cedarmaps.js'></script>
+    <link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.1/cedarmaps.css' rel='stylesheet' />
 </head>
     <body>
         <div id="app">
@@ -50,6 +53,6 @@
         <script src="/js/mega-menu.js"></script>
         {{--login-regisater--}}
         <script src='/js/login-register/login.js'></script>
-        {{--<script src='/js/login-register/register.js'></script>--}}
+        <script src='/js/slideshow.js'></script>
     </body>
 </html>
