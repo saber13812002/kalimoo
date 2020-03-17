@@ -12,6 +12,7 @@
                     <img src="/img/footer/logo-saman.png">
                     <img src="/img/footer/logo-enmad.png">
                     <img src="/img/footer/logo-saman.png">
+                    <a target="_blank" href="https://trustseal.enamad.ir/?id=148757&amp;Code=8z8qz8CsHDwRf26ucrXe"><img src="https://Trustseal.eNamad.ir/logo.aspx?id=148757&amp;Code=8z8qz8CsHDwRf26ucrXe" alt="" style="cursor:pointer" id="8z8qz8CsHDwRf26ucrXe"></a>
                 </div>
             </div>
             <div class="col-xs col-sm col- col-md-2 col-lg col-xl-2 footer-subject">
@@ -74,6 +75,7 @@
             <div class="col-xs col-sm col- col-md col-lg col-xl-6 footer-main-end-law">
                 <span class="">تمام حقوق مادی و معنوی این سایت متعلق به کالیمو می باشد.</span>
             </div>
+
             <div class="col-xs col-sm col- col-md col-lg col-xl-6 footer-main-end-webdesign">
             <span>
                 <a href="http://sarinweb.com">طراحی سایت</a> و  <a href="http://sarinweb.com">سئو</a>

@@ -27,7 +27,7 @@
                     <div class="form-group col-xs col-sm col-10 col-md col-lg col-xl-12">
                         <label for="inputState">برند محصول را انتخاب کنید</label>
                         <select id="inputState" class="form-control form-option select-size" v-model="brand_id">
-                            <option v-for="br in category_brands" v-bind:key="br.id" :value="br.id">{{br.name}}</option>
+                            <option v-for="br in category_brands" v-bind:key="br.id" :value="br">{{br.name}}</option>
                         </select>
                     </div>
                     <div class="form-group col-xs col-sm col-10 col-md col-lg col-xl-12">
@@ -66,11 +66,7 @@
         name: "edit-product" ,
 
         created() {
-            console.log("add-product-content component");
-            this.get_brands();
-            this.get_third_cats();
             this.get_product(this.$route.params.productID);
-
         } ,
 
         data() {
@@ -119,7 +115,7 @@
                     data.append('description' , this.product.description);
                     data.append('third_category_id' , this.main_id.id);
                     data.append('price' , this.product.price);
-                    data.append('brand_id' , this.brand_id);
+                    data.append('brand_id' , this.brand_id.id);
                     data.append('discount' , (100 - this.discount) / 100);
                     data.append('number' , this.product.number);
                     data.append('product_img' , file);
@@ -162,7 +158,7 @@
                             description: this.product.description ,
                             third_category_id: this.main_id.id ,
                             price: this.product.price ,
-                            brand_id: this.brand_id ,
+                            brand_id: this.brand_id.id ,
                             discount: (100 - this.discount) / 100 ,
                             number: this.product.number ,
                             limit: this.product.limit ,
@@ -193,7 +189,7 @@
                 }
 
             } ,
-            get_brands() {
+            get_brands(id) {
                 axios({
                     url: `/api/brands` ,
                     method: 'get' ,
@@ -201,13 +197,18 @@
                     .then(res => {
                         console.log(res);
                         this.brands = res.data;
+                        res.data.forEach(item => {
+                            if (item.id == id)
+                            {
+                                this.brand_id = item
+                            }
+                        })
                     })
                     .catch(err => {
                         console.log(err.response);
                         this.brands = [];
                     })
             } ,
-
             get_product(id) {
                 axios({
                     url: `/api/product/${id}` ,
@@ -216,12 +217,15 @@
                     .then(res => {
                         console.log(res);
                         this.product = res.data;
+                        this.discount = 100 - (res.data.discount * 100);
+                        this.get_brands(res.data.brand_id);
+                        this.get_third_cats(res.data.third_category_id);
                     })
                     .catch(err => {
                         console.log(err.response);
                     })
             } ,
-            get_third_cats() {
+            get_third_cats(id) {
                 axios({
                     url: '/api/all/third' ,
                     method: 'get' ,
@@ -229,6 +233,13 @@
                     .then(res => {
                         console.log(res);
                         this.thirds = res.data;
+                        res.data.forEach(item => {
+                            if (item.id == id)
+                            {
+                                this.main_id = item
+                            }
+                        });
+                        this.getCategorybrands(this.main_id)
                     })
                     .catch(err => {
                         console.log(err.response);

@@ -7980,9 +7980,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "edit-product",
   created: function created() {
-    console.log("add-product-content component");
-    this.get_brands();
-    this.get_third_cats();
     this.get_product(this.$route.params.productID);
   },
   data: function data() {
@@ -8033,7 +8030,7 @@ __webpack_require__.r(__webpack_exports__);
         data.append('description', this.product.description);
         data.append('third_category_id', this.main_id.id);
         data.append('price', this.product.price);
-        data.append('brand_id', this.brand_id);
+        data.append('brand_id', this.brand_id.id);
         data.append('discount', (100 - this.discount) / 100);
         data.append('number', this.product.number);
         data.append('product_img', file);
@@ -8073,7 +8070,7 @@ __webpack_require__.r(__webpack_exports__);
             description: this.product.description,
             third_category_id: this.main_id.id,
             price: this.product.price,
-            brand_id: this.brand_id,
+            brand_id: this.brand_id.id,
             discount: (100 - this.discount) / 100,
             number: this.product.number,
             limit: this.product.limit
@@ -8102,7 +8099,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    get_brands: function get_brands() {
+    get_brands: function get_brands(id) {
       var _this3 = this;
 
       axios({
@@ -8111,6 +8108,11 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         console.log(res);
         _this3.brands = res.data;
+        res.data.forEach(function (item) {
+          if (item.id == id) {
+            _this3.brand_id = item;
+          }
+        });
       })["catch"](function (err) {
         console.log(err.response);
         _this3.brands = [];
@@ -8125,11 +8127,16 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         console.log(res);
         _this4.product = res.data;
+        _this4.discount = 100 - res.data.discount * 100;
+
+        _this4.get_brands(res.data.brand_id);
+
+        _this4.get_third_cats(res.data.third_category_id);
       })["catch"](function (err) {
         console.log(err.response);
       });
     },
-    get_third_cats: function get_third_cats() {
+    get_third_cats: function get_third_cats(id) {
       var _this5 = this;
 
       axios({
@@ -8138,6 +8145,13 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         console.log(res);
         _this5.thirds = res.data;
+        res.data.forEach(function (item) {
+          if (item.id == id) {
+            _this5.main_id = item;
+          }
+        });
+
+        _this5.getCategorybrands(_this5.main_id);
       })["catch"](function (err) {
         console.log(err.response);
       });
@@ -9102,6 +9116,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -87508,7 +87524,7 @@ var render = function() {
                     _vm._l(_vm.category_brands, function(br) {
                       return _c(
                         "option",
-                        { key: br.id, domProps: { value: br.id } },
+                        { key: br.id, domProps: { value: br } },
                         [_vm._v(_vm._s(br.name))]
                       )
                     }),
@@ -89972,7 +89988,29 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("img", { attrs: { src: "/img/footer/logo-enmad.png" } }),
       _vm._v(" "),
-      _c("img", { attrs: { src: "/img/footer/logo-saman.png" } })
+      _c("img", { attrs: { src: "/img/footer/logo-saman.png" } }),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          attrs: {
+            target: "_blank",
+            href:
+              "https://trustseal.enamad.ir/?id=148757&Code=8z8qz8CsHDwRf26ucrXe"
+          }
+        },
+        [
+          _c("img", {
+            staticStyle: { cursor: "pointer" },
+            attrs: {
+              src:
+                "https://Trustseal.eNamad.ir/logo.aspx?id=148757&Code=8z8qz8CsHDwRf26ucrXe",
+              alt: "",
+              id: "8z8qz8CsHDwRf26ucrXe"
+            }
+          })
+        ]
+      )
     ])
   },
   function() {
