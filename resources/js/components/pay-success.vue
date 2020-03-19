@@ -1,6 +1,6 @@
 <template>
     <div>
-        <main-header @send-user="get_user($event)"></main-header>
+        <main-header @second-emit-cat="get_cat($event)" @send-user="get_user($event)"></main-header>
         <div class="col-xs col-sm col- col-md col-lg col-xl-12 pay-Successful">
             <center v-if="loading === 0">
                 <div v-if="success === 1" class="col-xs col-sm col- col-md col-lg col-xl-10 pay-Successful-inside">
@@ -29,7 +29,7 @@
 
             </center>
         </div>
-        <main-footer></main-footer>
+        <main-footer :menu="main_cat"></main-footer>
     </div>
 </template>
 
@@ -43,7 +43,8 @@
                 code1: '' ,
                 loading: 0 ,
                 user: null ,
-                success: 0
+                success: 0 ,
+                main_cat: [] ,
             }
         } ,
 
@@ -52,12 +53,23 @@
         // } ,
 
         methods: {
+            get_cat(event) {
+                this.main_cat = event
+            } ,
             get_user(event) {
                 this.user = event;
-                if (this.$route.path === '/payment-success')
-                {
+                if (this.$route.path === '/payment-success') {
                     this.create_orders();
                 }
+                else
+                {
+                    if (this.code)
+                    {
+                        this.success = 1;
+                        this.loading = 0;
+                    }
+                }
+
             } ,
             sendMessage(code) {
                 console.log(this.user);
@@ -85,6 +97,7 @@
                 let obj = JSON.parse(localStorage.getItem('online_payment')) || null;
                 if (obj)
                 {
+                    obj.payment_method = 'online';
                     if (this.pay_id)
                     {
                         obj.pay_id = this.pay_id;

@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->text('api_token')->nullable();
             $table->string('state')->nullable();
             $table->string('city')->nullable();
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('postal_code')->nullable();

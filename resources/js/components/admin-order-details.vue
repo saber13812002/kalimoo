@@ -1,5 +1,14 @@
 <template>
-    <div v-if="ok === 1" class="col-md-9 col-10 users-main delete-padding-left">
+    <div class="col-md-9 col-10 users-main delete-padding-left">
+        <GmapMap
+                :center="center"
+                :zoom="15"
+                style="width: 100%; height: 300px"
+        >
+            <GmapMarker
+                    :position="center"
+            />
+        </GmapMap>
         <div class="information-page-content-title">
             <div class="col-md-12 information-page-content-title-inside">
                 <h5 class="title-all-h5">جزئیات سفارش مشتریان </h5>
@@ -112,6 +121,7 @@
         created() {
             this.makeSure(this.$route.params.ID);
             this.get_peyks();
+            this.get_map();
         } ,
 
         data() {
@@ -124,7 +134,11 @@
                 orders_id: [] ,
                 admin: '' ,
                 peyks: [] ,
-                deliveryID: ''
+                deliveryID: '' ,
+                center: {
+                    lat: 31.963447 ,
+                    lng: 51.282316
+                } ,
             }
         } ,
 
@@ -192,10 +206,13 @@
                     }
                 })
                     .then(res => {
+
                         this.products = [];
                         console.log(res);
                         this.ok = 1;
                         this.order = res.data;
+                        this.center.lat = this.order.user.latitude;
+                        this.center.lng = this.order.user.longitude;
                         res.data.products.forEach(item => {
                             this.products.push(item.title)
                         });
@@ -207,6 +224,7 @@
 
                         this.admin = res.data.check;
                         this.get_order_products();
+
                     })
                     .catch(err => {
                         console.log(err.response);

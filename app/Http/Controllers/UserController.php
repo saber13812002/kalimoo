@@ -14,6 +14,16 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
+    public function latlng(Request $request)
+    {
+        $user = \auth()->user();
+        $user->update([
+            'latitude' => $request->lat ,
+            'longitude' => $request->lng ,
+        ]);
+        return response()->json('OK');
+    }
+
     public function peyks()
     {
         $peyks = User::where('type' , 'peyk')->get();

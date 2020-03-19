@@ -53,6 +53,7 @@ Route::post('/verification' , 'UserController@verificationTheCode');
 Route::post('/{id}/deleteUser' , 'UserController@deleteUser');
 Route::get('/peyks' , 'UserController@peyks');
 Route::post('/edit' , 'UserController@edit')->middleware('auth:api');
+Route::post('/latlng' , 'UserController@latlng')->middleware('auth:api');
 Route::post('/orders' , 'UserController@orders')->middleware('auth:api');
 Route::post('/changePassword' , 'UserController@changePassword')->middleware('auth:api');
 Route::get('/user' ,function (){

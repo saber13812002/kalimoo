@@ -35,9 +35,11 @@
     <link href="{{asset('css/menu-responsive/toggle.css')}}" rel="stylesheet" type="text/css">
     <link href="/css/login-register/login.css" rel="stylesheet" type="text/css">
     <link href="/css/login-register/register.css" rel="stylesheet" type="text/css">
-    <script src='https://api.cedarmaps.com/cedarmaps.js/v1.8.1/cedarmaps.js'></script>
-    <link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.1/cedarmaps.css' rel='stylesheet' />
-
+    <script src="https://api.cedarmaps.com/cedarmaps.js/v1.8.1/cedarmaps.js"></script>
+    <link
+            href="https://api.cedarmaps.com/cedarmaps.js/v1.8.1/cedarmaps.css"
+            rel="stylesheet"
+    />
 
         </head>
         <body>
@@ -46,49 +48,22 @@
         </div>
 
 
-<script src="/js/faq.js">
-        </script>
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.min.js'>
-        </script>
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
-        </script>
+        <script src="/js/faq.js"></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <!--all-bootstrap-->
-        <script src="{{asset('js/bootstrap/bootstrap.js')}}">
-        </script>
+        <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
         <!--slider-top-->
-        <script src="{{asset('js/slider.js')}}">
-        </script>
+        <script src="{{asset('js/slider.js')}}"></script>
         <!--mega-menu-->
-        <script src="{{asset('js/mega-menu.js')}}">
-        </script>
+        <script src="{{asset('js/mega-menu.js')}}"></script>
         <script src="{{asset('js/app.js')}}"></script>
-        <script>
-            function openCity(evt, cityName) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none";
-                }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-                document.getElementById(cityName).style.display = "block";
-                evt.currentTarget.className += " active";
-            }
-
-            // Get the element with id="defaultOpen" and click on it
-            document.getElementById("defaultOpen").click();
-        </script>
-        <script type="text/javascript" src="js/select-option.js"></script>
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.min.js'>
-        </script>
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
-        </script>
+        <script type="text/javascript" src="/js/select-option.js"></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
         <!--slider-brand-->
-        <script src="/js/slider-brand.js">
-        </script>
+        <script src="/js/slider-brand.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
         <script src='https://malsup.github.io/min/jquery.cycle2.min.js'></script>
         <script src='https://malsup.github.io/min/jquery.cycle2.carousel.min.js'></script>

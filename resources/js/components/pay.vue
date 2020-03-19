@@ -1,8 +1,8 @@
 <template>
     <div v-if="ok === 1">
-        <main-header @second-emit-cat="get_cat($event)"></main-header>
+        <!--<main-header @second-emit-cat="get_cat($event)"></main-header>-->
         <pay-success :code="code"></pay-success>
-        <main-footer :menu="main_cat"></main-footer>
+        <!--<main-footer :menu="main_cat"></main-footer>-->
     </div>
 </template>
 

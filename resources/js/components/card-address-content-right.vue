@@ -1,7 +1,13 @@
 <template>
     <div class="col-xs col-sm col- col-md-9 col-lg-9 col-xl-9  buy-card-right">
         <div class="col-xs col-sm col- col-md-12 col-lg-12 col-xl-12">
-            <div id="map" style="width: 400px; height: 300px;"></div>
+
+            <!-- This is the only HTML tag needed for map intialization -->
+            <div id="map" style="width: 100%; height: 300px;"></div>
+            <div id="results" style="display: none">
+                <div id="loading"></div>
+                <div id="latlng" class="rounded"></div>
+            </div>
             <div class="col-xs col-sm col- col-md col-lg col-xl-12  buy-card-right-top">
                 <span>  انتخاب آدرس تحویل سفارش </span>
             </div>
@@ -12,14 +18,10 @@
                         <span class="title-4 text-black">  گیرنده : <span class="title-4 text-black"> {{show.first_name}} {{show.last_name}}  </span> </span>
                     </div>
 
-                    <!--<div  v-if="check === 0" class="col-xs col-sm col- col-md col-lg col-xl-7 card-address-right-bottom-1-left">-->
-                        <!--<div class="input-Change-address error-color">-->
-                            <!--<span class="title-4 tablinks"> اطلاعات را تکمیل کنید ! </span>-->
-                        <!--</div>-->
-                    <!--</div>-->
+
                     <div class="col-xs col-sm col- col-md col-lg col-xl-9 card-address-right-bottom-1-left">
-                        <div class="input-Change-address">
-                            <a href="#"><span class="title-4 text-black tablinks" onclick="openCity(event, 'Horizontal')"> تغییر ادرس ارسال  </span></a>
+                        <div style="cursor: pointer" class="input-Change-address">
+                            <a><span class="title-4 text-black tablinks" @click="ok = 1"> تغییر ادرس ارسال  </span></a>
                         </div>
                     </div>
                 </div>
@@ -40,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="col-xs col-sm col- col-md col-lg col-xl-12 edite-form tabcontent" id="Horizontal">
+            <div v-if="ok === 1">
                 <div class="col-xs col-sm col- col-md col-lg col-xl-12  buy-card-right-top">
                     <span>  ویرایش اطلاعات </span>
                 </div>
@@ -95,7 +97,6 @@
                     </div>
 
                 </div>
-
             </div>
 
         </div>
@@ -106,10 +107,6 @@
                 <span><i class="fas fa-angle-double-right"></i></span>
                 <router-link to="/card/products"><span class="title-4">  بازگشت به سبد خرید  </span></router-link>
             </div>
-            <div class="col-xs col-sm col- col-md col-lg col-xl-6 card-factor-end-left">
-                <router-link to="/card/pay"><span class="title-4"> تایید و ادامه ثبت سفارش  </span></router-link>
-                <span><i class="fas fa-angle-double-left"></i></span>
-            </div>
         </div>
     </div>
 </template>
@@ -119,10 +116,15 @@
         name: "card-address-content-right" ,
         // props:['user'] ,
 
+        mounted() {
+            this.get_map();
+        } ,
+
       created() {
          this.cost();
          this.user();
       } ,
+
         data() {
             return {
                 check: '' ,
@@ -135,10 +137,152 @@
                     address: '' ,
                 } ,
                 error: '' ,
-                errorMessage: ''
+                errorMessage: '' ,
+                Lat: '' ,
+                Lng: '' ,
+                ok: null
             }
         } ,
         methods: {
+            get_map() {
+                try {
+                    // Check out line 9 where we have imported a file which has an `accessToken` variable available on it as has
+                    // been assigned our personal access token.
+                    // Sample: var accessToken = '<your access token>';
+                    // Get one from https://www.cedarmaps.com
+                    L.cedarmaps.accessToken = '037cea293e5ba8e2ba66e1a754484001baaf9505';
+                } catch (err) {
+                    throw new Error('You need to get an access token to be able to use cedarmaps SDK. ' +
+                        'Send us an email to <support@cedarmaps.com>');
+                }
+
+                var tileJSONUrl = 'https://api.cedarmaps.com/v1/tiles/cedarmaps.streets.json?access_token=' + L.cedarmaps.accessToken,
+                    marker;
+
+                // Initializing our map
+                var map = L.cedarmaps.map('map', tileJSONUrl, {
+                    scrollWheelZoom: true
+                }).setView([31.9798, 51.2946], 15);
+
+                // Making references to our DOM elements
+                var resultsContainer = document.getElementById('results'),
+                    latLngContainer = document.getElementById('latlng'),
+                    formattedAddressContainer = document.getElementById('formatted-address'),
+                    parsedResponseContainer = document.getElementById('parsed-response'),
+                    rawResponseContainer = document.getElementById('raw-response'),
+                    loadingIndicator = document.getElementById('loading'),
+                    prefixModeOptions = document.getElementById('prefix-mode'),
+                    verbosityCheckbox = document.getElementById('verbosity');
+
+                // Initializing the Geocoder object which has the necessary methods for reverse geocoding
+                // We also need to introduce our search index to geocoder module, `cedarmaps.streets` in this case.
+                // This means the reverse geocoder engine should search in our `cedarmaps.streets` index.
+                var geocoder = L.cedarmaps.geocoder('cedarmaps.streets');
+
+                map.on('click', function(e) {
+                    // If we have already clicked on map, a marker is placed on it and we should remove it before we add one again on user click.
+                    if (marker) map.removeLayer(marker);
+
+                    // Cedarmaps SDK is based on Leaflet.js. A leaflet marker is initialized like this. The event object (`e`) which is passed in by onClick event contains the latLng object.
+                    // Learn more: https://leafletjs.com/reference-1.5.0.html#marker
+                    marker = new L.marker(e.latlng).addTo(map);
+
+                    loading.style.visibility = 'visible';
+                    latLngContainer.style.visibility = 'visible';
+                    latLngContainer.innerHTML = 'Lat: ' + parseFloat(e.latlng.lat).toPrecision(10) + '<br /> Lng: ' + parseFloat(e.latlng.lng).toPrecision(10);
+                    this.Lat = parseFloat(e.latlng.lat).toPrecision(10);
+                    this.Lng = parseFloat(e.latlng.lng).toPrecision(10);
+                    axios({
+                        url: '/api/latlng' ,
+                        method: 'post' ,
+                        headers: {
+                            Accept: 'application/json' ,
+                            Authorization: `Bearer ${localStorage.token}`
+                        } ,
+                        data: {
+                            lat: parseFloat(e.latlng.lat).toPrecision(10) ,
+                            lng: parseFloat(e.latlng.lng).toPrecision(10) ,
+                        }
+                    })
+                        .then(res => {
+                            console.log(res);
+                        })
+                        .catch(err => {
+                            console.log(err.response);
+                        });
+
+                    var q = {
+                        query: e.latlng,
+                        verbosity: verbosityCheckbox.checked,
+                        prefix: prefixModeOptions.value || 'none'
+                    };
+
+                    // This is the main part of this demo which uses the `reverseQuery` method. For more info on other available options please refer to docs.
+                    // https://github.com/cedarstudios/cedarmaps-web-sdk-raster/blob/master/README.md
+                    geocoder.reverseQuery(q, function callback(err, res) {
+                        loading.style.visibility = 'hidden';
+                        formattedAddressContainer.style.display = 'block';
+                        parsedResponseContainer.style.display = 'block';
+                        rawResponseContainer.style.display = 'block';
+
+                        var parsedResponse = '<table class="address-parts rtl">' +
+                            '<tr>' +
+                            '<td width="50%" class="key">استان:</td>' +
+                            '<td width="50%">' + res.result.province + '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td class="key">شهر:</td>' +
+                            '<td>' + res.result.city + '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td class="key">محله:</td>' +
+                            '<td>' + res.result.locality + '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td class="key">مکان:</td>' +
+                            '<td>' + res.result.place + '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td class="key">خیابان:</td>' +
+                            '<td>' + res.result.address + '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td class="key">در منطقه طرح آلودگی هوا:</td>' +
+                            '<td>' + (res.result.traffic_zone.in_central ? 'بله' : 'خیر') + '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td class="key">در منطقه زوج و فرد:</td>' +
+                            '<td>' + (res.result.traffic_zone.in_evenodd ? 'بله' : 'خیر') + '</td>' +
+                            '</tr>' +
+                            '</table>';
+                        var rawResponse = '<pre class="language-javascript">' + syntaxHighlight(JSON.stringify(res, undefined, 2)) + '</pre>'
+
+                        parsedResponseContainer.innerHTML = parsedResponse;
+                        rawResponseContainer.innerHTML = rawResponse;
+                        formattedAddressContainer.innerHTML = res.result.formatted_address;
+                    });
+                });
+
+                // This function is just used for JSON syntax highlighting specifically for this demo and has nothing to do with CedarMaps SDK
+                function syntaxHighlight(json) {
+                    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+                        var cls = 'number';
+                        if (/^"/.test(match)) {
+                            if (/:$/.test(match)) {
+                                cls = 'key';
+                            } else {
+                                cls = 'string';
+                            }
+                        } else if (/true|false/.test(match)) {
+                            cls = 'boolean';
+                        } else if (/null/.test(match)) {
+                            cls = 'null';
+                        }
+                        return '<span class="' + cls + '">' + match + '</span>';
+                    });
+                }
+            } ,
             user() {
                 axios({
                     url: '/api/user' ,

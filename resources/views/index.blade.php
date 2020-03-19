@@ -33,8 +33,6 @@
     <link href="/css/menu-responsive/toggle.css" rel="stylesheet" type="text/css">
     <link href="/css/login-register/login.css" rel="stylesheet" type="text/css">
     <link href="/css/login-register/register.css" rel="stylesheet" type="text/css">
-    <script src='https://api.cedarmaps.com/cedarmaps.js/v1.8.1/cedarmaps.js'></script>
-    <link href='https://api.cedarmaps.com/cedarmaps.js/v1.8.1/cedarmaps.css' rel='stylesheet' />
 </head>
     <body>
         <div id="app">

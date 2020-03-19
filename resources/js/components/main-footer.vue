@@ -9,9 +9,6 @@
                     <p class="">{{setting_data.description}}</p>
                 </div>
                 <div class="footer-description-images">
-                    <img src="/img/footer/logo-saman.png">
-                    <img src="/img/footer/logo-enmad.png">
-                    <img src="/img/footer/logo-saman.png">
                     <a target="_blank" href="https://trustseal.enamad.ir/?id=148757&amp;Code=8z8qz8CsHDwRf26ucrXe"><img src="https://Trustseal.eNamad.ir/logo.aspx?id=148757&amp;Code=8z8qz8CsHDwRf26ucrXe" alt="" style="cursor:pointer" id="8z8qz8CsHDwRf26ucrXe"></a>
                 </div>
             </div>
@@ -23,7 +20,6 @@
 
                     <ul>
                         <a v-for="item in menu" :href="'/products/category/' + item.id" ><li class="">{{item.name}} </li></a>
-
                     </ul>
                 </div>
             </div>
