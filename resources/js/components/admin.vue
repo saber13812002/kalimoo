@@ -1,8 +1,8 @@
 <template>
     <div>
         <div v-if="access === 1">
-            <main-header @second-emit-cat="get_cat($event)" ></main-header>
-            <admin-content :setting_data="setting_data"></admin-content>
+            <main-header @second-emit-cat="get_cat($event)"></main-header>
+            <admin-content :setting_data="setting_data" :unreadnotifications="unreadnotifications"></admin-content>
             <main-footer :menu="main_cat" @get_setting="get_set($event)"></main-footer>
         </div>
         <div v-if="access === 0">
@@ -55,7 +55,8 @@
                 main_cat: [] ,
                 setting_data: [] ,
                 peyk: 0 ,
-                access: ''
+                access: '' ,
+                unreadnotifications: []
             }
         } ,
         methods:{
@@ -75,6 +76,7 @@
                     }
                 })
                     .then(res => {
+                        this.unreadnotifications = res.data.notifications;
                         if (this.$route.params.ID || this.$route.path === '/admin/orders-list')
                         {
                             if (res.data.type === 'peyk')

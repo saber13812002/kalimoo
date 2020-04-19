@@ -57,6 +57,8 @@ Route::post('/latlng' , 'UserController@latlng')->middleware('auth:api');
 Route::post('/orders' , 'UserController@orders')->middleware('auth:api');
 Route::post('/changePassword' , 'UserController@changePassword')->middleware('auth:api');
 Route::get('/user' ,function (){
+    $user = auth()->user();
+    $user['notifications'] = $user->unreadNotifications;
     return auth()->user();
 })->middleware('auth:api');
 
@@ -96,6 +98,7 @@ Route::get('/user/orders' , 'OrderController@userOrders')->middleware('auth:api'
 Route::post('/find/products/order' , 'OrderController@find');
 Route::get('/verify/order/{id}' , 'OrderController@verify');
 Route::post('/order/set_delivery/{id}' , 'OrderController@set_delivery_man')->middleware('auth:api');
+Route::get('/order/markasread' , 'OrderController@markAsRead')->middleware('auth:api');
 
 
 //baners

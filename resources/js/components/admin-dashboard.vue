@@ -19,6 +19,7 @@
             <a href="" class="list-group-item list-group-item-action active lga-color"> مشتری ها </a>
             <router-link to="/admin/customers-list" class="list-group-item list-group-item-action"><i class="fas fa-list-ul"></i> لیست مشتری ها <i class="fas fa-angle-left icon-left"></i></router-link>
             <router-link to="/admin/orders-list" class="list-group-item list-group-item-action"><i class="fas fa-dollar-sign"></i>  لیست  سفارشات <i class="fas fa-angle-left icon-left"></i></router-link>
+            <!--<router-link to="/admin/orders-list" class="list-group-item list-group-item-action"><i class="fas fa-dollar-sign"></i>  لیست  سفارشات <i class="fas fas fa-bell icon-left"></i></router-link>-->
             <!--<a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-list-ol"></i> آمار فروش <i class="fas fa-angle-left icon-left"></i></a>-->
             <router-link to="/admin/setting" class="list-group-item list-group-item-action"><i class="fas fa-cogs"></i> تنظیمات  <i class="fas fa-angle-left icon-left"></i></router-link>
             <a onclick="localStorage.removeItem('token'); window.location = '/'" class="list-group-item list-group-item-action" style="cursor: pointer;"><i class="fas fa-sign-in-alt"></i> خروج  <i class="fas fa-angle-left icon-left"></i></a>
@@ -28,7 +29,7 @@
 
 <script>
     export default {
-        name: "admin-dashboard"
+        name: "admin-dashboard" ,
     }
 </script>
 

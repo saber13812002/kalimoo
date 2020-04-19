@@ -69,8 +69,10 @@
 <script>
     export default {
         name: "orders-list" ,
+        props: ['unreadnotifications'] ,
         created() {
             this.get_orders();
+            this.markAsRead();
         } ,
 
         data() {
@@ -81,6 +83,22 @@
             }
         } ,
         methods: {
+            markAsRead() {
+                axios({
+                    url: '/api/order/markasread' ,
+                    method: 'get' ,
+                    headers: {
+                        accept: 'application/json' ,
+                        Authorization: `Bearer ${localStorage.token}`
+                    }
+                })
+                    .then(res => {
+                        console.log(res)
+                     })
+                    .catch(err => {
+                        console.log(err.response);
+                    })
+            } ,
             search() {
                 axios({
                     url: `/api/search/orders/tracking_code` ,

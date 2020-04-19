@@ -193,9 +193,10 @@
                 <search-box></search-box>
                 <div class="col-xs col-sm col- col-md-3 col-lg-3 col-xl-3 header-main-content-profile flex delete-padding-left">
                     <div class="col-xs col-sm col- col-md col-lg col-xl-6 profile-qstion">
-                        <router-link to="/contact-us" v-if="ok === 0"><span class="title-4 text-black">  تماس با ما </span></router-link>
+                        <router-link to="/contact-us" v-if="ok === 0 && admin === 0"><span class="title-4 text-black">  تماس با ما </span></router-link>
 
-                        <a href="/contact-us" v-if="ok === 1"><span class="title-4 text-black"> تماس با ما </span></a>
+                        <a href="/contact-us" v-if="ok === 1 && admin === 0"><span class="title-4 text-black"> تماس با ما </span></a>
+                        <a href="/admin/orders-list" v-if="admin === 1 && unreadnotifications"><span class="title-4 text-black"><i class="fas fas fa-bell icon-left" style="color: red"></i> {{unreadnotifications.length}} سفارش جدید </span></a>
                     </div>
                     <div class="col-xs col-sm col- col-md col-lg col-xl-6 header-main-top-login flex delete-padding">
                         <nav class="main-nav">
@@ -468,7 +469,9 @@
                 login: '' ,
                 user_firstName: '' ,
                 user_lastName: '' ,
-                allow: ''
+                allow: '' ,
+                admin: 0 ,
+                unreadnotifications: []
             }
         } ,
 
@@ -580,7 +583,6 @@
                         }).goAway(3000);
                     })
             } ,
-
             login1() {
                 axios({
                     method: 'post' ,
@@ -616,6 +618,15 @@
                     }
                 })
                     .then(res => {
+                        if (res.data.type === 'admin')
+                        {
+                            this.admin = 1
+                        }
+                        else
+                        {
+                            this.admin = 0
+                        }
+                        this.unreadnotifications = res.data.notifications;
                         this.user = 1;
                         this.user_firstName = res.data.first_name;
                         this.user_lastName = res.data.last_name;

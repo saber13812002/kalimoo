@@ -3280,7 +3280,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "admin-content",
-  props: ['setting_data']
+  props: ['setting_data', 'unreadnotifications']
 });
 
 /***/ }),
@@ -3332,6 +3332,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -3686,7 +3687,8 @@ __webpack_require__.r(__webpack_exports__);
       main_cat: [],
       setting_data: [],
       peyk: 0,
-      access: ''
+      access: '',
+      unreadnotifications: []
     };
   },
   methods: {
@@ -3707,6 +3709,8 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: "Bearer ".concat(localStorage.token)
         }
       }).then(function (res) {
+        _this.unreadnotifications = res.data.notifications;
+
         if (_this.$route.params.ID || _this.$route.path === '/admin/orders-list') {
           if (res.data.type === 'peyk') {
             _this.admin = 0;
@@ -8901,6 +8905,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -8947,7 +8952,9 @@ __webpack_require__.r(__webpack_exports__);
       login: '',
       user_firstName: '',
       user_lastName: '',
-      allow: ''
+      allow: '',
+      admin: 0,
+      unreadnotifications: []
     };
   },
   props: ['number'],
@@ -9097,6 +9104,13 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: "Bearer ".concat(localStorage.token)
         }
       }).then(function (res) {
+        if (res.data.type === 'admin') {
+          _this5.admin = 1;
+        } else {
+          _this5.admin = 0;
+        }
+
+        _this5.unreadnotifications = res.data.notifications;
         _this5.user = 1;
         _this5.user_firstName = res.data.first_name;
         _this5.user_lastName = res.data.last_name;
@@ -10233,8 +10247,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "orders-list",
+  props: ['unreadnotifications'],
   created: function created() {
     this.get_orders();
+    this.markAsRead();
   },
   data: function data() {
     return {
@@ -10244,6 +10260,20 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    markAsRead: function markAsRead() {
+      axios({
+        url: '/api/order/markasread',
+        method: 'get',
+        headers: {
+          accept: 'application/json',
+          Authorization: "Bearer ".concat(localStorage.token)
+        }
+      }).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        console.log(err.response);
+      });
+    },
     search: function search() {
       var _this = this;
 
@@ -74292,7 +74322,12 @@ var render = function() {
             _vm._v(" "),
             _c("admin-dashboard-res"),
             _vm._v(" "),
-            _c("router-view", { attrs: { setting_data: _vm.setting_data } })
+            _c("router-view", {
+              attrs: {
+                unreadnotifications: _vm.unreadnotifications,
+                setting_data: _vm.setting_data
+              }
+            })
           ],
           1
         )
@@ -75144,7 +75179,12 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _c("admin-content", { attrs: { setting_data: _vm.setting_data } }),
+            _c("admin-content", {
+              attrs: {
+                setting_data: _vm.setting_data,
+                unreadnotifications: _vm.unreadnotifications
+              }
+            }),
             _vm._v(" "),
             _c("main-footer", {
               attrs: { menu: _vm.main_cat },
@@ -89184,7 +89224,7 @@ var render = function() {
                     "col-xs col-sm col- col-md col-lg col-xl-6 profile-qstion"
                 },
                 [
-                  _vm.ok === 0
+                  _vm.ok === 0 && _vm.admin === 0
                     ? _c("router-link", { attrs: { to: "/contact-us" } }, [
                         _c("span", { staticClass: "title-4 text-black" }, [
                           _vm._v("  تماس با ما ")
@@ -89192,10 +89232,26 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.ok === 1
+                  _vm.ok === 1 && _vm.admin === 0
                     ? _c("a", { attrs: { href: "/contact-us" } }, [
                         _c("span", { staticClass: "title-4 text-black" }, [
                           _vm._v(" تماس با ما ")
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.admin === 1 && _vm.unreadnotifications
+                    ? _c("a", { attrs: { href: "/admin/orders-list" } }, [
+                        _c("span", { staticClass: "title-4 text-black" }, [
+                          _c("i", {
+                            staticClass: "fas fas fa-bell icon-left",
+                            staticStyle: { color: "red" }
+                          }),
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm.unreadnotifications.length) +
+                              " سفارش جدید "
+                          )
                         ])
                       ])
                     : _vm._e()

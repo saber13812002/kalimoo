@@ -248,4 +248,12 @@ class OrderController extends Controller
         $results = $results->whereIn('order_id' , $request->orders);
         return new JsonResponse($results->get());
     }
+
+    public function markAsRead()
+    {
+        $user = auth()->user();
+        $user->unreadNotifications->markAsRead();
+        DB::table('notifications')->where('read_at' , '!=' , null)->delete();
+        return 'done';
+    }
 }
