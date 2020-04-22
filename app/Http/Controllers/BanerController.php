@@ -81,7 +81,7 @@ class BanerController extends Controller
         {
             $image = $request->file('image');
             $name = $image->getClientOriginalName();
-            $image->move(public_path('/img/product-images') , $name);
+            $image->move(public_path('/images/baners') , $name);
 
             if ($request->link == null || $request->link == '')
             {

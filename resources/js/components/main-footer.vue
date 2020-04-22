@@ -3,7 +3,7 @@
         <div class="col-xs col-sm col- col-md col-lg col-xl-11 footer-main-content flex">
             <div class="col-xs col-sm col- col-md-4 col-lg col-xl-4 footer-description">
                 <div class="footer-description-name">
-                    <img :src="'/img/logo/' + setting_data.logo" alt="کالیمو" style="float: right">
+                    <img :src="'/images/logo/' + setting_data.logo" alt="کالیمو" style="float: right">
                 </div>
                 <div class="footer-description-comment">
                     <p class="">{{setting_data.description}}</p>

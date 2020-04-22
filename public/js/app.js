@@ -8430,8 +8430,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "filters",
   created: function created() {
@@ -75242,7 +75240,7 @@ var render = function() {
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
-                src: "/img/product-images/" + _vm.baners[0].image,
+                src: "/images/baners/" + _vm.baners[0].image,
                 alt: "Responsive image"
               }
             })
@@ -75275,7 +75273,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[1].image,
+                        src: "/images/baners/" + _vm.baners[1].image,
                         alt: "Responsive image"
                       }
                     })
@@ -75294,7 +75292,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[2].image,
+                        src: "/images/baners/" + _vm.baners[2].image,
                         alt: "Responsive image"
                       }
                     })
@@ -75313,7 +75311,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[3].image,
+                        src: "/images/baners/" + _vm.baners[3].image,
                         alt: "Responsive image"
                       }
                     })
@@ -75348,7 +75346,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/img/product-images/" + _vm.baners[4].image,
+                            src: "/images/baners/" + _vm.baners[4].image,
                             alt: "Responsive image"
                           }
                         })
@@ -75367,7 +75365,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/img/product-images/" + _vm.baners[5].image,
+                            src: "/images/baners/" + _vm.baners[5].image,
                             alt: "Responsive image"
                           }
                         })
@@ -75386,7 +75384,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/img/product-images/" + _vm.baners[6].image,
+                            src: "/images/baners/" + _vm.baners[6].image,
                             alt: "Responsive image"
                           }
                         })
@@ -78172,7 +78170,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[7].image,
+                        src: "/images/baners/" + _vm.baners[7].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78192,7 +78190,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[8].image,
+                        src: "/images/baners/" + _vm.baners[8].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78211,7 +78209,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[9].image,
+                        src: "/images/baners/" + _vm.baners[9].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78230,7 +78228,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[10].image,
+                        src: "/images/baners/" + _vm.baners[10].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78258,7 +78256,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[11].image,
+                        src: "/images/baners/" + _vm.baners[11].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78277,7 +78275,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[12].image,
+                        src: "/images/baners/" + _vm.baners[12].image,
                         alt: "Responsive image"
                       }
                     })
@@ -81509,9 +81507,7 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card card-second" }, [
                     _c("img", {
-                      attrs: {
-                        src: "/img/product-images/" + _vm.baners[13].image
-                      }
+                      attrs: { src: "/images/baners/" + _vm.baners[13].image }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card--hidden" }),
@@ -81540,9 +81536,7 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card card-second" }, [
                     _c("img", {
-                      attrs: {
-                        src: "/img/product-images/" + _vm.baners[14].image
-                      }
+                      attrs: { src: "/images/baners/" + _vm.baners[14].image }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card--hidden" }),
@@ -81571,9 +81565,7 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card card-second" }, [
                     _c("img", {
-                      attrs: {
-                        src: "/img/product-images/" + _vm.baners[15].image
-                      }
+                      attrs: { src: "/images/baners/" + _vm.baners[15].image }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card--hidden" }),
@@ -81602,9 +81594,7 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card card-second" }, [
                     _c("img", {
-                      attrs: {
-                        src: "/img/product-images/" + _vm.baners[16].image
-                      }
+                      attrs: { src: "/images/baners/" + _vm.baners[16].image }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card--hidden" }),
@@ -87264,7 +87254,7 @@ var render = function() {
           _c("img", {
             staticClass: "img-fluid",
             attrs: {
-              src: "/img/product-images/" + _vm.p_baner.image,
+              src: "/images/baners/" + _vm.p_baner.image,
               alt: "Responsive image"
             }
           })
@@ -87292,7 +87282,7 @@ var render = function() {
           _c("img", {
             staticClass: "img-fluid",
             attrs: {
-              src: "/img/product-images/" + _vm.baners[0].image,
+              src: "/images/baners/" + _vm.baners[0].image,
               alt: "Responsive image"
             }
           })
@@ -87329,7 +87319,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[1].image,
+                        src: "/images/baners/" + _vm.baners[1].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87353,7 +87343,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[2].image,
+                        src: "/images/baners/" + _vm.baners[2].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87377,7 +87367,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[3].image,
+                        src: "/images/baners/" + _vm.baners[3].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87417,7 +87407,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/img/product-images/" + _vm.baners[4].image,
+                            src: "/images/baners/" + _vm.baners[4].image,
                             alt: "Responsive image"
                           }
                         })
@@ -87441,7 +87431,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/img/product-images/" + _vm.baners[5].image,
+                            src: "/images/baners/" + _vm.baners[5].image,
                             alt: "Responsive image"
                           }
                         })
@@ -87465,7 +87455,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/img/product-images/" + _vm.baners[6].image,
+                            src: "/images/baners/" + _vm.baners[6].image,
                             alt: "Responsive image"
                           }
                         })
@@ -87509,7 +87499,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[7].image,
+                        src: "/images/baners/" + _vm.baners[7].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87534,7 +87524,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[8].image,
+                        src: "/images/baners/" + _vm.baners[8].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87558,7 +87548,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[9].image,
+                        src: "/images/baners/" + _vm.baners[9].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87582,7 +87572,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[10].image,
+                        src: "/images/baners/" + _vm.baners[10].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87615,7 +87605,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[11].image,
+                        src: "/images/baners/" + _vm.baners[11].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87639,7 +87629,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/img/product-images/" + _vm.baners[12].image,
+                        src: "/images/baners/" + _vm.baners[12].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87684,9 +87674,7 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: {
-                          src: "/img/product-images/" + _vm.baners[13].image
-                        }
+                        attrs: { src: "/images/baners/" + _vm.baners[13].image }
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "card--hidden" }),
@@ -87713,9 +87701,7 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: {
-                          src: "/img/product-images/" + _vm.baners[14].image
-                        }
+                        attrs: { src: "/images/baners/" + _vm.baners[14].image }
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "card--hidden" }),
@@ -87742,9 +87728,7 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: {
-                          src: "/img/product-images/" + _vm.baners[15].image
-                        }
+                        attrs: { src: "/images/baners/" + _vm.baners[15].image }
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "card--hidden" }),
@@ -87771,9 +87755,7 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: {
-                          src: "/img/product-images/" + _vm.baners[16].image
-                        }
+                        attrs: { src: "/images/baners/" + _vm.baners[16].image }
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "card--hidden" }),
@@ -89152,7 +89134,7 @@ var render = function() {
                 [
                   _c("a", { attrs: { href: "/" } }, [
                     _c("img", {
-                      attrs: { src: "/img/logo/" + _vm.setting_data.logo }
+                      attrs: { src: "/images/logo/" + _vm.setting_data.logo }
                     })
                   ])
                 ]
@@ -90438,7 +90420,7 @@ var render = function() {
                 _c("img", {
                   staticStyle: { float: "right" },
                   attrs: {
-                    src: "/img/logo/" + _vm.setting_data.logo,
+                    src: "/images/logo/" + _vm.setting_data.logo,
                     alt: "کالیمو"
                   }
                 })
@@ -94654,7 +94636,7 @@ var render = function() {
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
-                src: "/img/product-images/" + _vm.baner.image,
+                src: "/images/baners/" + _vm.baner.image,
                 alt: "Responsive image"
               }
             })

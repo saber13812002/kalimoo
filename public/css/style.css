@@ -934,7 +934,7 @@ border-left-color: rgb(132, 132, 132);
 }
 .product-image-size-slideshow {
     width: 170px;
-    height:230px !important;
+    height:161px !important;
     z-index: 2;
     position: relative;
 }
@@ -3204,7 +3204,7 @@ background-color: blue;
 	background-color:;
 }
 .gallery-offer-img1{
-	height: 236px;
+	height: auto;
 	background-color:;
 	display: flex;
 	align-items: center;
@@ -3212,7 +3212,7 @@ background-color: blue;
 	background-size: cover;
 }
 .gallery-offer-img2{
-	height: 236px;
+	height: auto;
 	background-color:;
 	background-size: cover;
 	display: flex;
@@ -3221,7 +3221,7 @@ background-color: blue;
 	background-size: cover;
 }
 .gallery-offer-img3{
-	height: 236px;
+	height: auto;
 	background-color:;
 	background-size: cover;
 	display: flex;
@@ -3230,7 +3230,7 @@ background-color: blue;
 	background-size: cover;
 }
 .gallery-offer-img4{
-	height: 236px;
+	height: auto;
 	background-color:;
 	background-size: cover;
 	display: flex;

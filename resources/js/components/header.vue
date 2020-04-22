@@ -160,7 +160,7 @@
                     </div>
 
                     <div class="col-xs col-sm-9 col-9 col-md col-lg col-xl-2 header-main-content-logo">
-                        <a href="/"><img :src="'/img/logo/' + setting_data.logo"></a>
+                        <a href="/"><img :src="'/images/logo/' + setting_data.logo"></a>
                     </div>
                    <div class="col-xs col-sm-1 col-1 col-md col-lg col-xl-1 buy-icon-res flex">
                       <router-link v-if="ok === 0 && show !== 0" to="/card/products">

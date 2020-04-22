@@ -1,7 +1,5 @@
 <template>
     <div>
- 
-
         <div class="col-xs col-sm col- col-md-12 col-lg-12 col-xl-12 content-main flex margin-top-fixd-product">
             <!--block-filter-->
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 delete-padding block-filter">
