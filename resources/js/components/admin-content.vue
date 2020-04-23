@@ -6,7 +6,7 @@
 
                 <admin-dashboard-res></admin-dashboard-res>
 
-                <router-view :unreadnotifications="unreadnotifications" :setting_data="setting_data"></router-view>
+                <router-view :flag="flag" :unreadnotifications="unreadnotifications" :setting_data="setting_data"></router-view>
             </div>
         </center>
     </section>
@@ -15,7 +15,7 @@
 <script>
     export default {
         name: "admin-content" ,
-        props: ['setting_data' , 'unreadnotifications']
+        props: ['setting_data' , 'unreadnotifications' , 'flag']
     }
 </script>
 

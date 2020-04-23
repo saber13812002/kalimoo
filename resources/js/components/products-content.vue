@@ -1,7 +1,7 @@
 <template>
     <div class="col-xs-12 col- col-sm col-md-9 col-lg-9 col-xl-9 block-content">
         <div class="col-xs col-sm col- col-md col-lg col-xl-12 product-image delete-padding">
-            <a :href="baner.link"><img :src="'/images/baners/' + baner.image" class="img-fluid" alt="Responsive image"></a>
+            <a :href="baner.link"><img :src="'/img/product-images/' + baner.image" class="img-fluid" alt="Responsive image"></a>
         </div>
         <div class="col-xs col-sm col- col-md col-lg col-xl-12 filter-panle delete-padding flex">
             <div class="col-xs col-sm col- col-md col-lg col-xl-6 delete-padding">
@@ -22,8 +22,7 @@
             <div class="col-xs col-sm col- col-md col-lg col-xl-6 show-product delete-padding">
                 <span class="tablinks" onclick="openCity(event, 'Vertical')" id="defaultOpen"><i class="fas fa-align-right"></i></span>
 
-                <span class="tablinks" onclick="openCity(event, 'Horizontal')"><i class="fas fa-align-justify"></i>
-                        </span>
+                <span class="tablinks" onclick="openCity(event, 'Horizontal')"><i class="fas fa-align-justify"></i></span>
             </div>
         </div>
 

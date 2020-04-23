@@ -69,7 +69,7 @@
 <script>
     export default {
         name: "orders-list" ,
-        props: ['unreadnotifications'] ,
+        props: ['unreadnotifications' , 'flag'] ,
         created() {
             this.get_orders();
             this.markAsRead();
@@ -80,6 +80,16 @@
                 orders: [] ,
                 query: '' ,
                 error: 0
+            }
+        } ,
+
+        watch: {
+            flag() {
+               if (this.flag === 1)
+               {
+                   console.log('api is calling ...');
+                   this.get_orders();
+               }
             }
         } ,
         methods: {

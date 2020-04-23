@@ -3280,7 +3280,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "admin-content",
-  props: ['setting_data', 'unreadnotifications']
+  props: ['setting_data', 'unreadnotifications', 'flag']
 });
 
 /***/ }),
@@ -3687,6 +3687,7 @@ __webpack_require__.r(__webpack_exports__);
       main_cat: [],
       setting_data: [],
       peyk: 0,
+      flag: null,
       access: '',
       unreadnotifications: []
     };
@@ -3697,6 +3698,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     get_cat: function get_cat(event) {
       this.main_cat = event;
+    },
+    get_flag: function get_flag(event) {
+      this.flag = event;
     },
     checkUser: function checkUser() {
       var _this = this;
@@ -8904,12 +8908,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     SearchBox: _searchBox__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   created: function created() {
+    this.callForNewOrders();
     console.log('header component');
 
     if (this.$route.path === '/' || this.$route.name === 'admin' || this.$route.name === 'user' || this.$route.path === '/payment-success' || this.$route.path === '/payment-error') {
@@ -8925,7 +8933,6 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     this.get_setting();
-    this.getUser();
     this.get_number1();
   },
   data: function data() {
@@ -8952,6 +8959,7 @@ __webpack_require__.r(__webpack_exports__);
       user_lastName: '',
       allow: '',
       admin: 0,
+      flag: 0,
       unreadnotifications: []
     };
   },
@@ -8962,8 +8970,20 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    forgetCodeVerify: function forgetCodeVerify() {
+    callForNewOrders: function callForNewOrders() {
       var _this = this;
+
+      if (this.$route.path === '/admin/orders-list') {
+        this.getUser();
+        setInterval(function () {
+          _this.getUser();
+        }, 30000);
+      } else {
+        this.getUser();
+      }
+    },
+    forgetCodeVerify: function forgetCodeVerify() {
+      var _this2 = this;
 
       axios({
         url: '/api/forgetPassword/verify',
@@ -8978,14 +8998,14 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         console.log(res);
 
-        _this.$toasted.success(res.data.message, {
+        _this2.$toasted.success(res.data.message, {
           position: 'bottom-center',
           theme: 'bubble',
           fitToScreen: true,
           className: ['your-custom-class']
         }).goAway(3000);
 
-        _this.$toasted.success(res.data.password, {
+        _this2.$toasted.success(res.data.password, {
           position: 'bottom-center',
           theme: 'bubble',
           fitToScreen: true,
@@ -8998,7 +9018,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err.response);
 
-        _this.$toasted.error(err.response.data.message, {
+        _this2.$toasted.error(err.response.data.message, {
           position: 'bottom-center',
           theme: 'bubble',
           fitToScreen: true,
@@ -9007,7 +9027,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     forgetCode: function forgetCode() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.loadingForget = 0;
       axios({
@@ -9022,40 +9042,17 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         console.log(res);
 
-        _this2.$toasted.success(res.data.message, {
+        _this3.$toasted.success(res.data.message, {
           position: 'bottom-center',
           theme: 'bubble',
           fitToScreen: true,
           className: ['your-custom-class']
         }).goAway(3000);
 
-        _this2.allow = 1;
-        _this2.loadingForget = 1;
+        _this3.allow = 1;
+        _this3.loadingForget = 1;
       })["catch"](function (err) {
-        _this2.loadingForget = 1;
-        console.log(err.response);
-
-        _this2.$toasted.error(err.response.data, {
-          position: 'bottom-center',
-          theme: 'bubble',
-          fitToScreen: true,
-          className: ['your-custom-class']
-        }).goAway(3000);
-      });
-    },
-    get_setting: function get_setting() {
-      var _this3 = this;
-
-      axios({
-        url: '/api/setting/index',
-        method: 'get',
-        headers: {
-          accept: 'application/json'
-        }
-      }).then(function (res) {
-        console.log(res);
-        _this3.setting_data = res.data[0];
-      })["catch"](function (err) {
+        _this3.loadingForget = 1;
         console.log(err.response);
 
         _this3.$toasted.error(err.response.data, {
@@ -9066,8 +9063,31 @@ __webpack_require__.r(__webpack_exports__);
         }).goAway(3000);
       });
     },
-    login1: function login1() {
+    get_setting: function get_setting() {
       var _this4 = this;
+
+      axios({
+        url: '/api/setting/index',
+        method: 'get',
+        headers: {
+          accept: 'application/json'
+        }
+      }).then(function (res) {
+        console.log(res);
+        _this4.setting_data = res.data[0];
+      })["catch"](function (err) {
+        console.log(err.response);
+
+        _this4.$toasted.error(err.response.data, {
+          position: 'bottom-center',
+          theme: 'bubble',
+          fitToScreen: true,
+          className: ['your-custom-class']
+        }).goAway(3000);
+      });
+    },
+    login1: function login1() {
+      var _this5 = this;
 
       axios({
         method: 'post',
@@ -9077,22 +9097,22 @@ __webpack_require__.r(__webpack_exports__);
           password: this.password
         }
       }).then(function (res) {
-        _this4.user = 1;
-        _this4.user_firstName = res.data.first_name;
-        _this4.user_lastName = res.data.last_name;
-        _this4.error1 = 0;
+        _this5.user = 1;
+        _this5.user_firstName = res.data.first_name;
+        _this5.user_lastName = res.data.last_name;
+        _this5.error1 = 0;
         localStorage.setItem('token', res.data.api_token);
         window.location = '/';
       })["catch"](function (err) {
-        _this4.errorMessage1 = '';
+        _this5.errorMessage1 = '';
         console.log(err.response);
-        _this4.error1 = 1;
-        _this4.errorMessage1 = err.response.data;
-        _this4.user = 0;
+        _this5.error1 = 1;
+        _this5.errorMessage1 = err.response.data;
+        _this5.user = 0;
       });
     },
     getUser: function getUser() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios({
         url: '/api/user',
@@ -9103,27 +9123,42 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (res) {
         if (res.data.type === 'admin') {
-          _this5.admin = 1;
+          _this6.admin = 1;
         } else {
-          _this5.admin = 0;
+          _this6.admin = 0;
         }
 
-        _this5.unreadnotifications = res.data.notifications;
-        _this5.user = 1;
-        _this5.user_firstName = res.data.first_name;
-        _this5.user_lastName = res.data.last_name;
+        var lng = _this6.unreadnotifications.length;
+        _this6.unreadnotifications = res.data.notifications;
 
-        _this5.$emit('send-user', res.data);
+        if (_this6.unreadnotifications.length > lng) {
+          _this6.flag = 1;
+
+          if (_this6.admin === 1) {
+            var x = document.getElementById("myAudio");
+            x.play();
+          }
+        } else {
+          _this6.flag = 0;
+        }
+
+        _this6.user = 1;
+        _this6.user_firstName = res.data.first_name;
+        _this6.user_lastName = res.data.last_name;
+
+        _this6.$emit('send-user', res.data);
+
+        _this6.$emit('flag', _this6.flag);
       })["catch"](function (err) {
         console.log(err.response);
 
-        _this5.$emit('send-user', 0);
+        _this6.$emit('send-user', 0);
 
-        _this5.user = 0;
+        _this6.user = 0;
       });
     },
     verify: function verify() {
-      var _this6 = this;
+      var _this7 = this;
 
       axios({
         method: 'post',
@@ -9136,22 +9171,22 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (res) {
         console.log(res);
-        _this6.error1 = 0;
+        _this7.error1 = 0;
         localStorage.setItem('token', res.data.user.api_token);
         window.location = '/';
       })["catch"](function (err) {
-        _this6.errorMessage1 = '';
+        _this7.errorMessage1 = '';
         console.log(err.response);
 
         if (err.response.status === 404 || err.response.status === 500 || err.response.status === 400 || err.response.status === 401) {
-          _this6.error1 = 1;
+          _this7.error1 = 1;
         }
 
-        _this6.errorMessage1 = err.response.data.message;
+        _this7.errorMessage1 = err.response.data.message;
       });
     },
     getcode: function getcode() {
-      var _this7 = this;
+      var _this8 = this;
 
       this.error = 0;
 
@@ -9165,16 +9200,16 @@ __webpack_require__.r(__webpack_exports__);
           }
         }).then(function (res) {
           console.log(res);
-          _this7.level = 1;
+          _this8.level = 1;
         })["catch"](function (err) {
-          _this7.errorMessage = '';
+          _this8.errorMessage = '';
           console.log(err.response);
 
           if (err.response.status === 404 || err.response.status === 500 || err.response.status === 400 || err.response.status === 401) {
-            _this7.error = 1;
+            _this8.error = 1;
           }
 
-          _this7.errorMessage = err.response.data;
+          _this8.errorMessage = err.response.data;
         });
       } else {
         axios({
@@ -9187,21 +9222,21 @@ __webpack_require__.r(__webpack_exports__);
           }
         }).then(function (res) {
           console.log(res);
-          _this7.level = 1;
+          _this8.level = 1;
         })["catch"](function (err) {
-          _this7.errorMessage = '';
+          _this8.errorMessage = '';
           console.log(err.response);
 
           if (err.response.status === 404 || err.response.status === 500 || err.response.status === 400 || err.response.status === 401) {
-            _this7.error = 1;
+            _this8.error = 1;
           }
 
-          _this7.errorMessage = err.response.data;
+          _this8.errorMessage = err.response.data;
         });
       }
     },
     get_number1: function get_number1() {
-      var _this8 = this;
+      var _this9 = this;
 
       if (!localStorage.order) {
         this.show = 0;
@@ -9214,7 +9249,7 @@ __webpack_require__.r(__webpack_exports__);
 
         this.sum = [];
         this.orders.forEach(function (item) {
-          _this8.sum.push(item.order_number);
+          _this9.sum.push(item.order_number);
         });
         this.sum = this.sum.reduce(add);
         this.show = this.sum;
@@ -9222,7 +9257,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     get_number: function get_number() {
-      var _this9 = this;
+      var _this10 = this;
 
       var add = function add(a, b) {
         return a + b;
@@ -9230,7 +9265,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.sum = [];
       this.number.forEach(function (item) {
-        _this9.sum.push(item.order_number);
+        _this10.sum.push(item.order_number);
       });
       this.sum = this.sum.reduce(add);
       this.show = this.sum;
@@ -10245,7 +10280,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "orders-list",
-  props: ['unreadnotifications'],
+  props: ['unreadnotifications', 'flag'],
   created: function created() {
     this.get_orders();
     this.markAsRead();
@@ -10256,6 +10291,14 @@ __webpack_require__.r(__webpack_exports__);
       query: '',
       error: 0
     };
+  },
+  watch: {
+    flag: function flag() {
+      if (this.flag === 1) {
+        console.log('api is calling ...');
+        this.get_orders();
+      }
+    }
   },
   methods: {
     markAsRead: function markAsRead() {
@@ -10651,7 +10694,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _product__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./product */ "./resources/js/components/product.vue");
-//
 //
 //
 //
@@ -74322,6 +74364,7 @@ var render = function() {
             _vm._v(" "),
             _c("router-view", {
               attrs: {
+                flag: _vm.flag,
                 unreadnotifications: _vm.unreadnotifications,
                 setting_data: _vm.setting_data
               }
@@ -75171,6 +75214,9 @@ var render = function() {
           [
             _c("main-header", {
               on: {
+                flag: function($event) {
+                  return _vm.get_flag($event)
+                },
                 "second-emit-cat": function($event) {
                   return _vm.get_cat($event)
                 }
@@ -75179,6 +75225,7 @@ var render = function() {
             _vm._v(" "),
             _c("admin-content", {
               attrs: {
+                flag: _vm.flag,
                 setting_data: _vm.setting_data,
                 unreadnotifications: _vm.unreadnotifications
               }
@@ -75240,7 +75287,7 @@ var render = function() {
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
-                src: "/images/baners/" + _vm.baners[0].image,
+                src: "/img/product-images/" + _vm.baners[0].image,
                 alt: "Responsive image"
               }
             })
@@ -75273,7 +75320,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[1].image,
+                        src: "/img/product-images/" + _vm.baners[1].image,
                         alt: "Responsive image"
                       }
                     })
@@ -75292,7 +75339,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[2].image,
+                        src: "/img/product-images/" + _vm.baners[2].image,
                         alt: "Responsive image"
                       }
                     })
@@ -75311,7 +75358,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[3].image,
+                        src: "/img/product-images/" + _vm.baners[3].image,
                         alt: "Responsive image"
                       }
                     })
@@ -75346,7 +75393,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/images/baners/" + _vm.baners[4].image,
+                            src: "/img/product-images/" + _vm.baners[4].image,
                             alt: "Responsive image"
                           }
                         })
@@ -75365,7 +75412,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/images/baners/" + _vm.baners[5].image,
+                            src: "/img/product-images/" + _vm.baners[5].image,
                             alt: "Responsive image"
                           }
                         })
@@ -75384,7 +75431,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/images/baners/" + _vm.baners[6].image,
+                            src: "/img/product-images/" + _vm.baners[6].image,
                             alt: "Responsive image"
                           }
                         })
@@ -78170,7 +78217,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[7].image,
+                        src: "/img/product-images/" + _vm.baners[7].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78190,7 +78237,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[8].image,
+                        src: "/img/product-images/" + _vm.baners[8].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78209,7 +78256,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[9].image,
+                        src: "/img/product-images/" + _vm.baners[9].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78228,7 +78275,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[10].image,
+                        src: "/img/product-images/" + _vm.baners[10].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78256,7 +78303,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[11].image,
+                        src: "/img/product-images/" + _vm.baners[11].image,
                         alt: "Responsive image"
                       }
                     })
@@ -78275,7 +78322,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[12].image,
+                        src: "/img/product-images/" + _vm.baners[12].image,
                         alt: "Responsive image"
                       }
                     })
@@ -81507,7 +81554,9 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card card-second" }, [
                     _c("img", {
-                      attrs: { src: "/images/baners/" + _vm.baners[13].image }
+                      attrs: {
+                        src: "/img/product-images/" + _vm.baners[13].image
+                      }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card--hidden" }),
@@ -81536,7 +81585,9 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card card-second" }, [
                     _c("img", {
-                      attrs: { src: "/images/baners/" + _vm.baners[14].image }
+                      attrs: {
+                        src: "/img/product-images/" + _vm.baners[14].image
+                      }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card--hidden" }),
@@ -81565,7 +81616,9 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card card-second" }, [
                     _c("img", {
-                      attrs: { src: "/images/baners/" + _vm.baners[15].image }
+                      attrs: {
+                        src: "/img/product-images/" + _vm.baners[15].image
+                      }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card--hidden" }),
@@ -81594,7 +81647,9 @@ var render = function() {
                 [
                   _c("div", { staticClass: "card card-second" }, [
                     _c("img", {
-                      attrs: { src: "/images/baners/" + _vm.baners[16].image }
+                      attrs: {
+                        src: "/img/product-images/" + _vm.baners[16].image
+                      }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card--hidden" }),
@@ -87254,7 +87309,7 @@ var render = function() {
           _c("img", {
             staticClass: "img-fluid",
             attrs: {
-              src: "/images/baners/" + _vm.p_baner.image,
+              src: "/img/product-images/" + _vm.p_baner.image,
               alt: "Responsive image"
             }
           })
@@ -87282,7 +87337,7 @@ var render = function() {
           _c("img", {
             staticClass: "img-fluid",
             attrs: {
-              src: "/images/baners/" + _vm.baners[0].image,
+              src: "/img/product-images/" + _vm.baners[0].image,
               alt: "Responsive image"
             }
           })
@@ -87319,7 +87374,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[1].image,
+                        src: "/img/product-images/" + _vm.baners[1].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87343,7 +87398,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[2].image,
+                        src: "/img/product-images/" + _vm.baners[2].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87367,7 +87422,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "image-size-small img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[3].image,
+                        src: "/img/product-images/" + _vm.baners[3].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87407,7 +87462,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/images/baners/" + _vm.baners[4].image,
+                            src: "/img/product-images/" + _vm.baners[4].image,
                             alt: "Responsive image"
                           }
                         })
@@ -87431,7 +87486,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/images/baners/" + _vm.baners[5].image,
+                            src: "/img/product-images/" + _vm.baners[5].image,
                             alt: "Responsive image"
                           }
                         })
@@ -87455,7 +87510,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "image-size-small img-fluid",
                           attrs: {
-                            src: "/images/baners/" + _vm.baners[6].image,
+                            src: "/img/product-images/" + _vm.baners[6].image,
                             alt: "Responsive image"
                           }
                         })
@@ -87499,7 +87554,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[7].image,
+                        src: "/img/product-images/" + _vm.baners[7].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87524,7 +87579,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[8].image,
+                        src: "/img/product-images/" + _vm.baners[8].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87548,7 +87603,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[9].image,
+                        src: "/img/product-images/" + _vm.baners[9].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87572,7 +87627,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[10].image,
+                        src: "/img/product-images/" + _vm.baners[10].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87605,7 +87660,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[11].image,
+                        src: "/img/product-images/" + _vm.baners[11].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87629,7 +87684,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: {
-                        src: "/images/baners/" + _vm.baners[12].image,
+                        src: "/img/product-images/" + _vm.baners[12].image,
                         alt: "Responsive image"
                       }
                     })
@@ -87674,7 +87729,9 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: { src: "/images/baners/" + _vm.baners[13].image }
+                        attrs: {
+                          src: "/img/product-images/" + _vm.baners[13].image
+                        }
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "card--hidden" }),
@@ -87701,7 +87758,9 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: { src: "/images/baners/" + _vm.baners[14].image }
+                        attrs: {
+                          src: "/img/product-images/" + _vm.baners[14].image
+                        }
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "card--hidden" }),
@@ -87728,7 +87787,9 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: { src: "/images/baners/" + _vm.baners[15].image }
+                        attrs: {
+                          src: "/img/product-images/" + _vm.baners[15].image
+                        }
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "card--hidden" }),
@@ -87755,7 +87816,9 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: { src: "/images/baners/" + _vm.baners[16].image }
+                        attrs: {
+                          src: "/img/product-images/" + _vm.baners[16].image
+                        }
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "card--hidden" }),
@@ -89134,7 +89197,7 @@ var render = function() {
                 [
                   _c("a", { attrs: { href: "/" } }, [
                     _c("img", {
-                      attrs: { src: "/images/logo/" + _vm.setting_data.logo }
+                      attrs: { src: "/img/logo/" + _vm.setting_data.logo }
                     })
                   ])
                 ]
@@ -90007,7 +90070,9 @@ var render = function() {
             return _vm.get_cat_emit($event)
           }
         }
-      })
+      }),
+      _vm._v(" "),
+      _vm._m(22)
     ],
     1
   )
@@ -90306,6 +90371,16 @@ var staticRenderFns = [
       },
       [_c("span", {}, [_vm._v("  سبد خرید  ")])]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("audio", { attrs: { id: "myAudio" } }, [
+      _c("source", {
+        attrs: { src: "/sound/deduction.mp3", type: "audio/ogg" }
+      })
+    ])
   }
 ]
 render._withStripped = true
@@ -90420,7 +90495,7 @@ var render = function() {
                 _c("img", {
                   staticStyle: { float: "right" },
                   attrs: {
-                    src: "/images/logo/" + _vm.setting_data.logo,
+                    src: "/img/logo/" + _vm.setting_data.logo,
                     alt: "کالیمو"
                   }
                 })
@@ -94636,7 +94711,7 @@ var render = function() {
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
-                src: "/images/baners/" + _vm.baner.image,
+                src: "/img/product-images/" + _vm.baner.image,
                 alt: "Responsive image"
               }
             })

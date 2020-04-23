@@ -160,7 +160,7 @@
                     </div>
 
                     <div class="col-xs col-sm-9 col-9 col-md col-lg col-xl-2 header-main-content-logo">
-                        <a href="/"><img :src="'/images/logo/' + setting_data.logo"></a>
+                        <a href="/"><img :src="'/img/logo/' + setting_data.logo"></a>
                     </div>
                    <div class="col-xs col-sm-1 col-1 col-md col-lg col-xl-1 buy-icon-res flex">
                       <router-link v-if="ok === 0 && show !== 0" to="/card/products">
@@ -414,6 +414,9 @@
                 </div>
             </div>
         <category-menu @first-emit-cat="get_cat_emit($event)"></category-menu>
+            <audio id="myAudio">
+                <source src="/sound/deduction.mp3" type="audio/ogg">
+            </audio>
         </div>
 </template>
 
@@ -423,6 +426,8 @@
         components: {SearchBox},
 
         created() {
+            this.callForNewOrders();
+
             console.log('header component');
             if (this.$route.path === '/' || this.$route.name === 'admin' || this.$route.name === 'user' || this.$route.path === '/payment-success' || this.$route.path === '/payment-error')
             {
@@ -443,7 +448,6 @@
             }
 
             this.get_setting();
-            this.getUser();
             this.get_number1();
         } ,
 
@@ -471,6 +475,7 @@
                 user_lastName: '' ,
                 allow: '' ,
                 admin: 0 ,
+                flag: 0 ,
                 unreadnotifications: []
             }
         } ,
@@ -484,6 +489,20 @@
         } ,
 
         methods: {
+            callForNewOrders() {
+                if (this.$route.path === '/admin/orders-list')
+                {
+                    this.getUser();
+                    setInterval(() => {
+                        this.getUser();
+                    } , 30000);
+                }
+                else
+                {
+                    this.getUser();
+                }
+
+            } ,
             forgetCodeVerify() {
                 axios({
                     url: '/api/forgetPassword/verify' ,
@@ -626,11 +645,27 @@
                         {
                             this.admin = 0
                         }
+
+                        let lng = this.unreadnotifications.length;
                         this.unreadnotifications = res.data.notifications;
+                        if (this.unreadnotifications.length > lng)
+                        {
+                            this.flag = 1;
+                            if (this.admin === 1)
+                            {
+                                let x = document.getElementById("myAudio");
+                                x.play();
+                            }
+                        }
+                        else
+                        {
+                            this.flag = 0;
+                        }
                         this.user = 1;
                         this.user_firstName = res.data.first_name;
                         this.user_lastName = res.data.last_name;
-                        this.$emit('send-user' , res.data)
+                        this.$emit('send-user' , res.data);
+                        this.$emit('flag' , this.flag);
                     })
                     .catch(err => {
                         console.log(err.response);

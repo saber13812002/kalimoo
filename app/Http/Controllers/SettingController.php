@@ -111,7 +111,7 @@ class SettingController extends Controller
         {
             $image = $request->file('logo');
             $name = $image->getClientOriginalName();
-            $image->move(public_path('/images/logo') , $name);
+            $image->move(public_path('/img/logo') , $name);
             $setting = Setting::orderBy('id' , 'DESC')->first();
             if ($setting)
             {
