@@ -5502,6 +5502,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "all-category",
   created: function created() {
@@ -78425,10 +78433,10 @@ var render = function() {
                                             [
                                               _vm._v(
                                                 _vm._s(
-                                                  (1 -
-                                                    _vm.discounted[0]
-                                                      .discount) *
-                                                    100
+                                                  (
+                                                    1 -
+                                                    _vm.discounted[0].discount
+                                                  ).toFixed(2) * 100
                                                 ) + "%"
                                               )
                                             ]
@@ -78600,10 +78608,10 @@ var render = function() {
                                             [
                                               _vm._v(
                                                 _vm._s(
-                                                  (1 -
-                                                    _vm.discounted[1]
-                                                      .discount) *
-                                                    100
+                                                  (
+                                                    1 -
+                                                    _vm.discounted[1].discount
+                                                  ).toFixed(2) * 100
                                                 ) + "%"
                                               )
                                             ]
@@ -78775,10 +78783,10 @@ var render = function() {
                                             [
                                               _vm._v(
                                                 _vm._s(
-                                                  (1 -
-                                                    _vm.discounted[2]
-                                                      .discount) *
-                                                    100
+                                                  (
+                                                    1 -
+                                                    _vm.discounted[2].discount
+                                                  ).toFixed(2) * 100
                                                 ) + "%"
                                               )
                                             ]
@@ -78950,10 +78958,10 @@ var render = function() {
                                             [
                                               _vm._v(
                                                 _vm._s(
-                                                  (1 -
-                                                    _vm.discounted[3]
-                                                      .discount) *
-                                                    100
+                                                  (
+                                                    1 -
+                                                    _vm.discounted[3].discount
+                                                  ).toFixed(2) * 100
                                                 ) + "%"
                                               )
                                             ]
@@ -79125,10 +79133,10 @@ var render = function() {
                                             [
                                               _vm._v(
                                                 _vm._s(
-                                                  (1 -
-                                                    _vm.discounted[4]
-                                                      .discount) *
-                                                    100
+                                                  (
+                                                    1 -
+                                                    _vm.discounted[4].discount
+                                                  ).toFixed(2) * 100
                                                 ) + "%"
                                               )
                                             ]
@@ -79300,10 +79308,10 @@ var render = function() {
                                             [
                                               _vm._v(
                                                 _vm._s(
-                                                  (1 -
-                                                    _vm.discounted[5]
-                                                      .discount) *
-                                                    100
+                                                  (
+                                                    1 -
+                                                    _vm.discounted[5].discount
+                                                  ).toFixed(2) * 100
                                                 ) + "%"
                                               )
                                             ]

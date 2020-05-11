@@ -1137,7 +1137,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[0].discount) * 100}}%</span>
+                                                        <span class="text-white">{{(1 - discounted[0].discount).toFixed(2) * 100}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[0].product_img"></div>
@@ -1163,11 +1163,19 @@
                                                 <div class="product-box">
                                                     <div class="action-btn-slideshow">
                                                         <div class="box" v-if="discounted[1].number">
-                                                            <a @click="sent_to_card(discounted[1])"><i class="fas fa-shopping-basket"></i></a> <a href="#"><i class="fas fa-exchange-alt"></i></a> <a href="#"><i class="fas fa-heart"></i></a>
+                                                            <a @click="sent_to_card(discounted[1])">
+                                                                <i class="fas fa-shopping-basket"></i>
+                                                            </a>
+                                                            <a href="#">
+                                                                <i class="fas fa-exchange-alt"></i>
+                                                            </a>
+                                                            <a href="#">
+                                                                <i class="fas fa-heart"></i>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[1].discount) * 100}}%</span>
+                                                        <span class="text-white">{{(1 - discounted[1].discount).toFixed(2) * 100}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[1].product_img"></div>
@@ -1197,7 +1205,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[2].discount) * 100}}%</span>
+                                                        <span class="text-white">{{(1 - discounted[2].discount).toFixed(2) * 100}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[2].product_img"></div>
@@ -1227,7 +1235,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[3].discount) * 100}}%</span>
+                                                        <span class="text-white">{{(1 - discounted[3].discount).toFixed(2) * 100}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[3].product_img"></div>
@@ -1257,7 +1265,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[4].discount) * 100}}%</span>
+                                                        <span class="text-white">{{(1 - discounted[4].discount).toFixed(2) * 100}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[4].product_img"></div>
@@ -1287,7 +1295,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[5].discount) * 100}}%</span>
+                                                        <span class="text-white">{{(1 - discounted[5].discount).toFixed(2) * 100}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[5].product_img"></div>
