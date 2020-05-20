@@ -9441,6 +9441,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "main-footer",
   created: function created() {
@@ -90635,7 +90636,17 @@ var staticRenderFns = [
             }
           })
         ]
-      )
+      ),
+      _vm._v(" "),
+      _c("img", {
+        staticStyle: { cursor: "pointer" },
+        attrs: {
+          src: "/img/logo/1234logo.png",
+          alt: "",
+          onclick:
+            "window.open('https://ecunion.ir/verify/kalimoo.com?token=77058855ec37bbdb360f', 'Popup','toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30')"
+        }
+      })
     ])
   },
   function() {

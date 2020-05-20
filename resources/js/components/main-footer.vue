@@ -10,6 +10,7 @@
                 </div>
                 <div class="footer-description-images">
                     <a target="_blank" href="https://trustseal.enamad.ir/?id=148757&amp;Code=8z8qz8CsHDwRf26ucrXe"><img src="https://Trustseal.eNamad.ir/logo.aspx?id=148757&amp;Code=8z8qz8CsHDwRf26ucrXe" alt="" style="cursor:pointer" id="8z8qz8CsHDwRf26ucrXe"></a>
+                    <img src="/img/logo/1234logo.png" alt="" onclick="window.open('https://ecunion.ir/verify/kalimoo.com?token=77058855ec37bbdb360f', 'Popup','toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30')" style="cursor:pointer">
                 </div>
             </div>
             <div class="col-xs col-sm col- col-md-2 col-lg col-xl-2 footer-subject">
