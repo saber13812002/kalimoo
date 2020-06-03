@@ -157,6 +157,9 @@
                 axios({
                     url: '/api/orders' ,
                     method: 'get' ,
+                    headers: {
+                        Authorization: `Bearer ${localStorage.token}`
+                    }
                 })
                     .then(res => {
                         console.log(res);

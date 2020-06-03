@@ -32,8 +32,16 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::latest('id')->get();
-        return new JsonResponse($users);
+        if (\auth()->user()->type == 'admin')
+        {
+            $users = User::latest('id')->get();
+            return new JsonResponse($users);
+        }
+
+        return new JsonResponse([
+            'message' => 'Unauthenticated'
+        ] , 401);
+
     }
 
     public function registerForApp(Request $request)

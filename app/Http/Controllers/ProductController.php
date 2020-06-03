@@ -287,7 +287,7 @@ class ProductController extends Controller
         //checking inputs
         if ($request->has('title'))
         {
-            $product = $product->where('title', 'LIKE' , '%' .$request->title. '%');
+            $product = $product->whereRaw("MATCH (title) AGAINST ('$request->title')");
         }
 
         //return an error if no results are found
@@ -312,7 +312,6 @@ class ProductController extends Controller
         }
 
         else $product = $product->latest()->get();
-
 
         $LNG = ceil(count($product) / 4);
         $arr = [];

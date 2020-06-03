@@ -162,18 +162,26 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = Order::latest('id')->get();
-        $arr = []; $i = 0;
-
-        foreach ($orders as $order)
+        if (auth()->user()->type == 'admin')
         {
-            $arr[$i]['order'] = $order;
-            $arr[$i]['date'] = Jalalian::forge($order->created_at)->format('%A, %d %B %y');
-            $arr[$i]['time'] = Jalalian::forge($order->created_at)->format('H:i:s');
-            $i++;
+            $orders = Order::latest('id')->get();
+            $arr = []; $i = 0;
+
+            foreach ($orders as $order)
+            {
+                $arr[$i]['order'] = $order;
+                $arr[$i]['date'] = Jalalian::forge($order->created_at)->format('%A, %d %B %y');
+                $arr[$i]['time'] = Jalalian::forge($order->created_at)->format('H:i:s');
+                $i++;
+            }
+
+            return response()->json($arr);
         }
 
-        return response()->json($arr);
+        return new JsonResponse([
+            'message' => 'Unauthenticated'
+        ] , 401);
+
     }
 
     public function show($id)

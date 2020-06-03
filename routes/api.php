@@ -43,7 +43,7 @@ Route::get('/setting/index' , 'SettingController@index');
 Route::post('/logo' , 'SettingController@logo');
 
 //users
-Route::get('/users' , 'UserController@index');
+Route::get('/users' , 'UserController@index')->middleware('auth:api');
 Route::post('/sendMessage' , 'UserController@sendMessage');
 Route::post('/forgetPassword' , 'UserController@forgetPassword');
 Route::post('/forgetPassword/verify' , 'UserController@forgetPassword_verify');
@@ -89,10 +89,11 @@ Route::get('/show/slideshow' , 'SlideshowController@show');
 //search
 Route::post('/search/{table}/{param}' , 'searchController@search');
 Route::get('/{table}/{id}/delete' , 'searchController@deleteEverything');
+//Route::post('/test' , 'searchController@test');
 
 //orders
 Route::post('/order/create' , 'OrderController@create')->middleware('auth:api');
-Route::get('/orders' , 'OrderController@index');
+Route::get('/orders' , 'OrderController@index')->middleware('auth:api');
 Route::get('/check/order/{id}' , 'OrderController@show')->middleware('auth:api');
 Route::get('/user/orders' , 'OrderController@userOrders')->middleware('auth:api');
 Route::post('/find/products/order' , 'OrderController@find');

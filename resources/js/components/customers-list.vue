@@ -119,6 +119,9 @@
                 axios({
                     url: '/api/users' ,
                     method: 'get' ,
+                    headers: {
+                        Authorization: `Bearer ${localStorage.token}`
+                    }
                 })
                     .then(res => {
                         console.log(res);

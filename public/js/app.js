@@ -7748,7 +7748,10 @@ __webpack_require__.r(__webpack_exports__);
 
       axios({
         url: '/api/users',
-        method: 'get'
+        method: 'get',
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.token)
+        }
       }).then(function (res) {
         console.log(res);
         _this3.users = res.data;
@@ -10375,7 +10378,10 @@ __webpack_require__.r(__webpack_exports__);
 
       axios({
         url: '/api/orders',
-        method: 'get'
+        method: 'get',
+        headers: {
+          Authorization: "Bearer ".concat(localStorage.token)
+        }
       }).then(function (res) {
         console.log(res);
         _this3.orders = res.data;
