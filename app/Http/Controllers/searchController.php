@@ -6,6 +6,7 @@ use App\Product;
 use App\SecondaryCategory;
 use App\ThirdCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Morilog\Jalali\Jalalian;
 
@@ -57,6 +58,10 @@ class searchController extends Controller
             {
                 ThirdCategory::where('secondary_category_id' , $id)->delete();
                 Product::where('secondary_category_id' , $id)->delete();
+            }
+            if ($table === 'products')
+            {
+                Cache::forget('products');
             }
             return 'this item is deleted successfully';
         }

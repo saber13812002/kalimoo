@@ -22,7 +22,7 @@
                 <div class="orderr-bottom-right-inside">
                     <span class="title-4">  سفارش : </span><span class="title-4">{{order.order.tracking_code}}</span>
                 </div>
-                <div class="orderr-bottom-right-inside">
+                <div class="orderr-bottom-right-inside" style="height: auto">
                     <span class="title-4"> محصول :  </span><span class="title-4"> {{products.toString()}} </span>
                 </div>
                 <div class="orderr-bottom-right-inside">

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 
 class Product extends Model
 {
@@ -26,5 +28,21 @@ class Product extends Model
     public function orders()
     {
         return $this->belongsToMany(Order::class);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::created(function (){
+            Cache::forget('products');
+        });
+
+        static::updated(function (){
+            Cache::forget('products');
+        });
+
+        static::deleted(function (){
+            Cache::forget('products');
+        });
     }
 }

@@ -34,10 +34,10 @@
                     <div class="col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-image">
                         <span class="text-span title-4"> {{item.first_name}} {{item.last_name}}</span>
                     </div>
-                    <div class="col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-number">
+                    <div class="col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-name">
                         <span class="text-span title-4"> {{item.phone_number}} </span>
                     </div>
-                    <div class="col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-number">
+                    <div class="col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-city">
                         <span class="text-span title-4"> {{item.postal_code}}</span>
                     </div>
                     <div class="col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-email">

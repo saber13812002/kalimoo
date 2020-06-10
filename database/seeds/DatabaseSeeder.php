@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\ThirdCategory::class , 10)->create();
         factory(\App\Product::class , 600)->create();
         factory(\App\User::class , 10)->create();
-//        factory(\App\Order::class , 10)->create();
+        factory(\App\Order::class , 10)->create();
         factory(\App\Brand::class , 10)->create();
     }
 }

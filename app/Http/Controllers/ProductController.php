@@ -10,6 +10,9 @@ use App\SecondaryCategory;
 use App\ThirdCategory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -74,7 +77,6 @@ class ProductController extends Controller
     public function show($id)
     {
         $products = Product::find($id);
-
         $products['category'] = [
             'main' => $products->main->name ,
             'secondary' => $products->second->name ,
@@ -86,8 +88,9 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::latest('id')->get();
-        return response()->json($products);
+        return Cache::rememberForever('products' , function (){
+            return Product::latest('id')->get();
+        });
     }
 
     public function store(Request $request)
@@ -287,7 +290,8 @@ class ProductController extends Controller
         //checking inputs
         if ($request->has('title'))
         {
-            $product = $product->whereRaw("MATCH (title) AGAINST ('$request->title')");
+            $product = $product->where('title', 'LIKE' , '%' .$request->title. '%');
+            // $product = $product->whereRaw("MATCH (title) AGAINST ('$request->title')");
         }
 
         //return an error if no results are found

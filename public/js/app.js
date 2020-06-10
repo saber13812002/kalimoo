@@ -10287,9 +10287,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "orders-list",
   props: ['unreadnotifications', 'flag'],
@@ -11243,8 +11240,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "products-list-content",
   created: function created() {
@@ -11266,7 +11261,6 @@ __webpack_require__.r(__webpack_exports__);
         url: '/api/index',
         method: 'get'
       }).then(function (res) {
-        console.log(res);
         _this.ok = 1;
         _this.products = res.data;
       })["catch"](function (err) {
@@ -11284,7 +11278,6 @@ __webpack_require__.r(__webpack_exports__);
           q: this.query
         }
       }).then(function (res) {
-        console.log(res);
         _this2.ok = 1;
         _this2.products = res.data;
       })["catch"](function (err) {
@@ -11300,8 +11293,6 @@ __webpack_require__.r(__webpack_exports__);
           url: "/api/products/".concat(id, "/delete"),
           method: 'get'
         }).then(function (res) {
-          console.log(res);
-
           _this3.$toasted.success('product is deleted', {
             position: 'bottom-center',
             theme: 'bubble',
@@ -74906,12 +74897,19 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "orderr-bottom-right-inside" }, [
-            _c("span", { staticClass: "title-4" }, [_vm._v(" محصول :  ")]),
-            _c("span", { staticClass: "title-4" }, [
-              _vm._v(" " + _vm._s(_vm.products.toString()) + " ")
-            ])
-          ]),
+          _c(
+            "div",
+            {
+              staticClass: "orderr-bottom-right-inside",
+              staticStyle: { height: "auto" }
+            },
+            [
+              _c("span", { staticClass: "title-4" }, [_vm._v(" محصول :  ")]),
+              _c("span", { staticClass: "title-4" }, [
+                _vm._v(" " + _vm._s(_vm.products.toString()) + " ")
+              ])
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "orderr-bottom-right-inside" }, [
             _c("span", { staticClass: "title-4" }, [_vm._v("  استان : ")]),
@@ -86825,7 +86823,7 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-number"
+                          "col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-name"
                       },
                       [
                         _c("span", { staticClass: "text-span title-4" }, [
@@ -86838,7 +86836,7 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-number"
+                          "col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-city"
                       },
                       [
                         _c("span", { staticClass: "text-span title-4" }, [
@@ -95582,7 +95580,7 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "col-xs col-sm col- col-md col-lg col-xl-1 user-list-info-box-name"
+                          "col-xs col-sm col- col-md col-lg col-xl-3 user-list-info-box-name"
                       },
                       [
                         _c("span", { staticClass: "text-span text-gray-p" }, [
@@ -96966,12 +96964,21 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "orderr-bottom-right-inside" }, [
-                _c("span", { staticClass: "title-4" }, [_vm._v(" محصول :  ")]),
-                _c("span", { staticClass: "title-4" }, [
-                  _vm._v(" " + _vm._s(_vm.products.toString()) + " ")
-                ])
-              ]),
+              _c(
+                "div",
+                {
+                  staticClass: "orderr-bottom-right-inside",
+                  staticStyle: { height: "auto" }
+                },
+                [
+                  _c("span", { staticClass: "title-4" }, [
+                    _vm._v(" محصول :  ")
+                  ]),
+                  _c("span", { staticClass: "title-4" }, [
+                    _vm._v(" " + _vm._s(_vm.products.toString()) + " ")
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "orderr-bottom-right-inside" }, [
                 _c("span", { staticClass: "title-4" }, [_vm._v("  استان : ")]),

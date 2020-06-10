@@ -33,7 +33,7 @@ $factory->define(User::class, function (Faker $faker) {
 $factory->define(\App\Order::class, function (Faker $faker) {
     return [
         'user_id' => $faker->numberBetween(1 , 10) ,
-        'explanation' => $faker->text ,
+        'tracking_code' => Str::random(6)
     ];
 });
 

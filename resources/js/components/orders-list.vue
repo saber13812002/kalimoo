@@ -43,9 +43,6 @@
                     <div class="col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-name">
                         <span class="text-span title-4"> {{item.date}} در ساعت {{item.time}} </span>
                     </div>
-                    <!--<div class="col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-number">-->
-                        <!--<span class="text-span title-4"> {{item.order.explanation}} </span>-->
-                    <!--</div>-->
                     <div class="col-xs col-sm col- col-md col-lg col-xl-2 user-list-info-box-number">
                         <span class="text-span title-4 c-stop" >  {{item.order.status}} </span>
                     </div>
