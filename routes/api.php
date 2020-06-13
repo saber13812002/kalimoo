@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/mainCat' , 'CategoryController@main');
 Route::get('/indexCat' , 'CategoryController@index');
 Route::post('/create/cat' , 'CategoryController@create');
+Route::post('/update/cat/{id}/{type}' , 'CategoryController@update');
+Route::get('/cat/{id}/{type}' , 'CategoryController@single');
 Route::get('/{id}/all' , 'CategoryController@all');
 Route::get('/all/third' , 'CategoryController@all_third');
 Route::get('/menu' , 'CategoryController@menu');
@@ -99,7 +101,7 @@ Route::get('/orders' , 'OrderController@index')->middleware('auth:api');
 Route::get('/check/order/{id}' , 'OrderController@show')->middleware('auth:api');
 Route::get('/user/orders' , 'OrderController@userOrders')->middleware('auth:api');
 Route::post('/find/products/order' , 'OrderController@find');
-Route::get('/verify/order/{id}' , 'OrderController@verify');
+Route::post('/verify/order/{id}' , 'OrderController@verify');
 Route::post('/order/set_delivery/{id}' , 'OrderController@set_delivery_man')->middleware('auth:api');
 Route::get('/order/markasread' , 'OrderController@markAsRead')->middleware('auth:api');
 

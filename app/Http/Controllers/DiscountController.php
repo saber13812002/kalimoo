@@ -79,12 +79,18 @@ class DiscountController extends Controller
         {
             $cost = 1000;
             $user->discounts()->attach($discount);
-            return response()->json($cost);
+            return response()->json([
+                'cost' => $cost ,
+                'discount' => $discount
+            ]);
         }
         else
         {
             $user->discounts()->attach($discount);
-            return response()->json(round($cost));
+            return response()->json([
+                'cost' => round($cost) ,
+                'discount' => $discount
+            ]);
         }
     }
 

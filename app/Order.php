@@ -35,4 +35,9 @@ class Order extends Model
             Notification::send($admins, new OrderCreated());
         });
     }
+
+    public function discount()
+    {
+        return $this->belongsTo(Discount::class);
+    }
 }

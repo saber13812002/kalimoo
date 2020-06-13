@@ -1137,11 +1137,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[0].discount).toFixed(2) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[0].discount)  * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[0].product_img"></div>
-                                                        <div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>
+                                                        <div class="preveiew-shape-slideshow"><img class="shape-main-site-slideshow" src="/img/shap-1smallslideshow.png"> <img class="shape-responsive-slideshow" src="img/shap-bigres.png"></div>
                                                     </div></a>
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 product-info-slideshow delete-padding">
                                                         <a href="#">
@@ -1175,7 +1175,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[1].discount).toFixed(2) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[1].discount) * 100) }}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[1].product_img"></div>
@@ -1205,7 +1205,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[2].discount).toFixed(2) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[2].discount) * 100) }}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[2].product_img"></div>
@@ -1235,7 +1235,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[3].discount).toFixed(2) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[3].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[3].product_img"></div>
@@ -1265,7 +1265,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[4].discount).toFixed(2) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[4].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[4].product_img"></div>
@@ -1295,7 +1295,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[5].discount).toFixed(2) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[5].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[5].product_img"></div>
@@ -1331,7 +1331,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[6].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[6].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[6].product_img"></div>
@@ -1361,7 +1361,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[7].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[7].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[7].product_img"></div>
@@ -1391,7 +1391,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[8].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[8].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[8].product_img"></div>
@@ -1421,7 +1421,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[9].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[9].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[9].product_img"></div>
@@ -1451,7 +1451,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[10].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[10].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[10].product_img"></div>
@@ -1481,7 +1481,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[11].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[11].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[11].product_img"></div>
@@ -1517,7 +1517,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[12].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[12].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[12].product_img"></div>
@@ -1547,7 +1547,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[13].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[13].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[13].product_img"></div>
@@ -1577,7 +1577,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[14].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[14].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[14].product_img"></div>
@@ -1607,7 +1607,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[15].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[15].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[15].product_img"></div>
@@ -1637,7 +1637,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[16].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[16].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[16].product_img"></div>
@@ -1667,7 +1667,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-offer-slideshow">
-                                                        <span class="text-white">{{(1 - discounted[17].discount) * 100}}%</span>
+                                                        <span class="text-white">{{Math.trunc((1 - discounted[17].discount) * 100)}}%</span>
                                                     </div><a href="#">
                                                     <div class="col-xs col-sm col- col-md col-lg col-xl-12 preview-slideshow delete-padding">
                                                         <div class="preview-image-slideshow"><img class="product-image-size-slideshow" :src="'/images/products/' + discounted[17].product_img"></div>

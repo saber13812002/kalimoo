@@ -24,12 +24,12 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
         <!-- Bootstrap CSS-->
-        <link rel="stylesheet" href="../css/bootstrap/bootstrap.css" type="text/css">
-        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css">
 
         <!-- Main CSS-->
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <link rel="stylesheet" type="text/css" href="../css/admin-user/style-dashboard.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/admin-user/style-dashboard.css">
         <link href="/css/search-box-header.css" rel="stylesheet" type="text/css">
         <link href="/css/megamenu.css" rel="stylesheet" type="text/css">
         <link href="/css/menu-responsive/toggle.css" rel="stylesheet" type="text/css">

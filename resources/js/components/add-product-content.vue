@@ -69,10 +69,8 @@
         name: "add-product-content" ,
 
         created() {
-            console.log("add-product-content component");
             this.get_brands();
             this.get_third_cats();
-
         } ,
 
         data() {

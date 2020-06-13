@@ -296,13 +296,14 @@
                 })
                     .then(res => {
                         console.log(res);
-                        this.$toasted.success(`${Math.ceil(this.price - res.data)} تومان از مبلغ سفارش شما کم شد` , {
+                        this.$toasted.success(`${Math.ceil(this.price - res.data.cost)} تومان از مبلغ سفارش شما کم شد` , {
                             position: 'bottom-center' ,
                             theme: 'bubble' ,
                             fitToScreen: true ,
                             className: ['your-custom-class']
                         }).goAway(4000);
-                        this.$emit('cost-after-off' , res.data)
+                        this.$emit('cost-after-off' , res.data.cost);
+                        this.$emit('discount_id' , res.data.discount.id);
                     })
                     .catch(err => {
                         console.log(err.response);

@@ -156,6 +156,93 @@ class CategoryController extends Controller
             }
         }
 
-        return \response()->json($cat) ;
+        return \response()->json($cat);
+    }
+
+    public function update($id , $type , Request $request)
+    {
+        $validata = Validator::make($request->all() , [
+            'name' => 'required' ,
+            'img' => 'image|nullable' ,
+            'icon' => 'image|nullable' ,
+        ]);
+
+        if ($validata->fails())
+        {
+            return new JsonResponse($validata->errors()->all() , 400);
+        }
+
+        if ($type == 'main')
+        {
+            $cat = MainCategory::find($id);
+            if ($request->has('img'))
+            {
+                $FileNameWithExt = $request->file('img')->getClientOriginalName();
+                $FileName = pathinfo($FileNameWithExt , PATHINFO_FILENAME);
+                $extension = $request->file('img')->getClientOriginalExtension();
+                $fileNameToStore = $FileName.'_'.time().'.'.$extension;
+                $request->file('img')->move(public_path('/images/category') , $fileNameToStore);
+            } else $fileNameToStore = $cat->img;
+
+            if ($request->has('icon'))
+            {
+                $FileNameWithExt1 = $request->file('icon')->getClientOriginalName();
+                $FileName1 = pathinfo($FileNameWithExt1 , PATHINFO_FILENAME);
+                $extension1 = $request->file('icon')->getClientOriginalExtension();
+                $fileNameToStore1 = $FileName1.'_'.time().'.'.$extension1;
+                $request->file('icon')->move(public_path('/images/icon') , $fileNameToStore1);
+            } else $fileNameToStore1 = $cat->icon;
+
+
+            $cat->update([
+                'name' => $request->name ,
+                'keywords' => $request->keywords ,
+                'img' => $fileNameToStore ,
+                'icon' => $fileNameToStore1
+            ]);
+            return \response()->json([
+                'message' => 'تغییرات با موفقیت اعمال شد' ,
+            ]);
+        }
+
+        elseif ($type == 'second')
+        {
+            $cat = SecondaryCategory::find($id);
+            if ($request->has('img'))
+            {
+                $FileNameWithExt = $request->file('img')->getClientOriginalName();
+                $FileName = pathinfo($FileNameWithExt , PATHINFO_FILENAME);
+                $extension = $request->file('img')->getClientOriginalExtension();
+                $fileNameToStore = $FileName.'_'.time().'.'.$extension;
+                $request->file('img')->move(public_path('/images/category') , $fileNameToStore);
+            } else $fileNameToStore = $cat->img;
+
+
+            $cat->update([
+                'name' => $request->name ,
+                'img' => $fileNameToStore ,
+            ]);
+            return \response()->json([
+                'message' => 'تغییرات با موفقیت اعمال شد' ,
+            ]);
+        }
+
+        return \response()->json('something went wrong in CategoryController update method' , 400);
+    }
+
+    public function single($id , $type)
+    {
+        if ($type == 'main')
+        {
+            $cat = MainCategory::find($id);
+        }
+        elseif ($type == 'second')
+        {
+            $cat = SecondaryCategory::find($id);
+        }
+        else
+            return \response()->json('something went wrong in CategoryController single method' , 400);
+
+        return new JsonResponse($cat);
     }
 }

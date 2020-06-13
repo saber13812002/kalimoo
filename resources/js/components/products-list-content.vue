@@ -52,7 +52,6 @@
         name: "products-list-content" ,
 
         created() {
-            console.log('products-list-content component');
             this.showProducts();
         } ,
 

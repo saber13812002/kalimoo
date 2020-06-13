@@ -22,4 +22,9 @@ class Discount extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

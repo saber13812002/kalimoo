@@ -34,6 +34,15 @@
                 <div class="orderr-bottom-right-inside">
                     <span class="title-4"> آدرس  : </span><span class="title-4"> {{order.user.address}} </span>
                 </div>
+
+                <div class="orderr-bottom-right-inside">
+                    <span class="title-4"> عرض جغرافیایی  : </span><span class="title-4" id="lat"> {{center.lat}} </span>
+                    <i class="far fa-copy" @click="copyText('lat')"></i>
+                </div>
+                <div class="orderr-bottom-right-inside">
+                    <span class="title-4"> طول جغرافیایی  : </span><span class="title-4" id="lng"> {{center.lng}} </span>
+                    <i class="far fa-copy" @click="copyText('lng')"></i>
+                </div>
             </div>
 
             <div class="col-md-6 orderr-bottom-left">
@@ -75,6 +84,9 @@
                     </select>
                 </div>
 
+                <div v-if="order.discount" class="form-group alert alert-success">
+                    <span class="title-4">این کاربر از کد تخفیف {{order.discount.amount}} درصدی به شناسه "{{order.discount.name}}" استفاده کرده است</span>
+                </div>
 
                 <div class="orderr-bottom-right-inside">
                     <span class="title-4"> سفارش :  </span><span class="title-4 c-stop">{{order.order.status}}</span>
@@ -143,6 +155,15 @@
         } ,
 
         methods: {
+            copyText(id) {
+                var copyText = document.getElementById(id);
+                var textArea = document.createElement("textarea");
+                textArea.value = copyText.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("Copy");
+                textArea.remove();
+            } ,
             set_delivery(id) {
                 axios({
                     url: `/api/order/set_delivery/${id}` ,
@@ -156,7 +177,6 @@
                     }
                 })
                     .then(res => {
-                        console.log(res);
                         this.makeSure(id);
                     })
                     .catch(err => {
@@ -172,7 +192,6 @@
                     }
                 })
                     .then(res => {
-                        console.log(res);
                         this.peyks = res.data;
                     })
                     .catch(err => {
@@ -180,15 +199,25 @@
                     })
             } ,
             verifyOrder(id) {
+                let array = [];
+                let obj = {};
+                this.order_products.forEach(item => {
+                    obj = {};
+                    obj.product_id = item.product_id;
+                    obj.number = item.number;
+                    array.push(obj);
+                });
                 axios({
                     url: `/api/verify/order/${id}` ,
-                    method: 'get' ,
+                    method: 'post' ,
+                    data: {
+                       orderInfo: array
+                    } ,
                     headers: {
                         Accept: 'application/json' ,
                     }
                 })
                     .then(res => {
-                        console.log(res);
                         this.makeSure(id);
                     })
                     .catch(err => {
@@ -196,7 +225,6 @@
                     })
             } ,
             makeSure(id) {
-
                 axios({
                     url: `/api/check/order/${id}` ,
                     method: 'get' ,
@@ -206,9 +234,7 @@
                     }
                 })
                     .then(res => {
-
                         this.products = [];
-                        console.log(res);
                         this.ok = 1;
                         this.order = res.data;
                         this.center.lat = this.order.user.latitude;
@@ -244,7 +270,6 @@
                     }
                 })
                     .then(res => {
-                        console.log(res);
                         this.order_products = res.data;
                     })
                     .catch(err => {

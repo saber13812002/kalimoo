@@ -15,6 +15,9 @@
                     <span class="text-span text-gray-p"> توضیحات توضیحات توضیحات  توضیحات توضیحات</span>
                 </div>
                 <div class="col-xs col-sm col- col-md col-lg col-xl-2 table-data-feature flex">
+                    <router-link :to="'/admin/edit-category/' + cat.id + '/' + 'main'" id="error23" class="item delete" data-toggle="tooltip" data-placement="top" title="" data-original-title="حذف ">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </router-link>
                     <a @click="click1(cat.id)" class="item confirm tablinks" data-toggle="tooltip" data-placement="top" title="" data-original-title="تایید">
                         <i class="fas fa-arrows-alt-h"></i>
                     </a>
@@ -41,6 +44,9 @@
                         <span class="text-span text-gray-p"> توضیحات توضیحات توضیحات  توضیحات توضیحات</span>
                     </div>
                     <div class="col-xs col-sm col- col-md col-lg col-xl-2 table-data-feature flex">
+                        <router-link :to="'/admin/edit-category/' + item.id + '/' + 'second'" id="errordx23" class="item delete" data-toggle="tooltip" data-placement="top" title="" data-original-title="حذف ">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </router-link>
                         <a id="error2" @click="delete_main('secondary_categories' , item.id)" class="item delete" data-toggle="tooltip" data-placement="top" title="" data-original-title="حذف ">
                             <i class="fas fa-trash-alt"></i>
                         </a>
@@ -56,7 +62,6 @@
     export default {
         name: "category-list-content" ,
         created() {
-           console.log('category-list-content component');
            this.get_cats();
         } ,
 
@@ -72,6 +77,7 @@
 
         methods: {
             click1(id) {
+               this.cats1 = [];
                this.click = true;
                this.cats.forEach(cat => {
                    if (cat.id === id)
@@ -105,7 +111,7 @@
                         url: `/api/${param}/${id}/delete` ,
                         method: 'get' ,
                     })
-                        .then(res => {
+                        .then( () => {
                             this.$toasted.success('دسته بندی حذف شد' , {
                                 position: 'bottom-center' ,
                                 theme: 'bubble' ,

@@ -126,6 +126,7 @@ Vue.component('special-discount', require('./components/special-discount.vue').d
 Vue.component('admin-order-details', require('./components/admin-order-details.vue').default);
 Vue.component('edit-product', require('./components/edit-product.vue').default);
 Vue.component('edit-baners', require('./components/edit-baners.vue').default);
+Vue.component('edit-category', require('./components/edit-category.vue').default);
 Vue.component('about-us', require('./components/about-us.vue').default);
 Vue.component('contact-us', require('./components/contact-us.vue').default);
 Vue.component('about-application', require('./components/about-application.vue').default);
@@ -164,6 +165,7 @@ const routes = [
     {path: '/admin/orders-list' , name: 'admin' ,meta:{title: 'لیست سفارشات'} ,component:require('./components/orders-list.vue').default } ,
     {path: '/admin/about-application' , name: 'admin' ,meta:{title: 'درباره اپلیکیشن'} ,component:require('./components/about-application.vue').default } ,
     {path: '/admin/edit-baners' , name: 'admin' ,meta:{title: 'ویرایش بنر ها'} ,component:require('./components/edit-baners.vue').default } ,
+    {path: '/admin/edit-category/:id/:type' , name: 'admin' ,meta:{title: 'ویرایش دسته بندی ها'} ,component:require('./components/edit-category.vue').default } ,
     {path: '/admin/discounts-list' ,name: 'admin' ,meta:{title: 'لیست کوپن'} , component:require('./components/discounts-list.vue').default } ,
     {path: '/admin/setting' ,name: 'admin' ,meta:{title: 'تنظیمات'} , component:require('./components/setting.vue').default } ,
     {path: '/product/:productID' ,name: 'admin' ,meta:{title: 'ویرایش محصول'} , component:require('./components/edit-product.vue').default } ,

@@ -93,7 +93,7 @@
 <script>
     export default {
         name: "card-left" ,
-        props: ['price' , 'factor', 'P_method' , 'orders1' , 'check' , 'off' , 'user' , 'minimum_price' , 'sending_cost'] ,
+        props: ['price' , 'discountId' , 'factor', 'P_method' , 'orders1' , 'check' , 'off' , 'user' , 'minimum_price' , 'sending_cost'] ,
 
         created() {
             if (this.$route.path === '/card/products')
@@ -216,6 +216,7 @@
             go_to_pay() {
                 let cost = '';
                 let factor = '';
+                let discountId = '';
                 if (this.off > 0)
                 {
                     cost = this.off
@@ -241,10 +242,21 @@
                 {
                     factor = this.factor;
                 }
+
+                if (!this.discountId)
+                {
+                    discountId = null
+                }
+                else
+                {
+                    discountId = this.discountId
+                }
+
                 let finalorder = {
                     total: cost ,
                     products: this.orders1 ,
-                    factor: factor
+                    factor: factor ,
+                    discountId: discountId
                 };
                 localStorage.setItem('online_payment' , JSON.stringify(finalorder));
                 axios({
@@ -268,6 +280,7 @@
             create_orders() {
                 let cost = '';
                 let factor = '';
+                let discountId = '';
                 if (this.off > 0)
                 {
                     cost = this.off
@@ -294,6 +307,15 @@
                     factor = this.factor;
                 }
 
+                if (! this.discountId)
+                {
+                    discountId = null
+                }
+                else
+                {
+                    discountId = this.discountId
+                }
+
                 axios({
                     url: '/api/order/create' ,
                     method: 'post' ,
@@ -301,7 +323,8 @@
                         total: cost ,
                         products: this.orders1 ,
                         factor: factor ,
-                        payment_method: this.P_method
+                        payment_method: this.P_method ,
+                        discountId: discountId
                     } ,
                     headers: {
                         Accept: 'application/json' ,

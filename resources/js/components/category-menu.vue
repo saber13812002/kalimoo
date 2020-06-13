@@ -80,7 +80,6 @@
                     url: '/api/menu'
                 })
                     .then(res => {
-                        console.log(res);
                         this.main_categories = res.data;
                         this.$emit('first-emit-cat' , this.main_categories);
                     })

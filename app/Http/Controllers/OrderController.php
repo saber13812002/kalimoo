@@ -25,12 +25,40 @@ class OrderController extends Controller
         ]);
     }
 
-    public function verify($id)
+    public function verify($id , Request $request)
     {
         $order = Order::find($id);
+        foreach ($request->orderInfo as $item)
+        {
+            $product = DB::table('products')->where('id', $item['product_id']);
+
+            if ($product->first()->number == 0)
+            {
+                $product->update([
+                    'number' => 0
+                ]);
+            }
+            else
+            {
+                if (( $product->first()->number) - ($item['number']) < 0)
+                {
+                    $product->update([
+                        'number' => 0
+                    ]);
+                }
+                else
+                {
+                    $product->update([
+                        'number' => ($product->first()->number) - ($item['number']) ,
+                        'sale' => ($product->first()->sale) + ($item['number'])
+                    ]);
+                }
+            }
+        }
         $order->update([
             'status' => 'تایید شد'
         ]);
+
 
         return new JsonResponse('ok');
     }
@@ -52,6 +80,7 @@ class OrderController extends Controller
         {
             $order = Order::create([
                 'user_id' => $user->id ,
+                'discount_id' => $request->discountId ,
                 'total' => $request->total ,
                 'factor' => $request->factor ,
                 'address' => $request->address ,
@@ -72,32 +101,6 @@ class OrderController extends Controller
                         'discount' => ($item->price) - ($item->final_price),
                         'total' => $product['final_price1']
                     ]);
-
-                if (DB::table('products')->where('id', $item->id)->first()->number == 0)
-                {
-                    DB::table('products')->where('id', $item->id)
-                        ->update([
-                            'number' => 0
-                        ]);
-                }
-                else
-                {
-                    if (($item->number) - ( $product['order_number']) < 0)
-                    {
-                        DB::table('products')->where('id', $item->id)
-                            ->update([
-                                'number' => 0 ,
-                            ]);
-                    }
-                    else
-                    {
-                        DB::table('products')->where('id' , $item->id)
-                            ->update([
-                                'number' => ($item->number) - ($product['order_number']) ,
-                                'sale' => ($item->sale) + ( $product['order_number'])
-                            ]);
-                    }
-                }
             }
         }
         else
@@ -105,6 +108,7 @@ class OrderController extends Controller
             $order = Order::where('pay_id' , $request->pay_id)->first();
             $order->update([
                 'user_id' => $user->id ,
+                'discount_id' => $request->discountId ,
                 'total' => $request->total ,
                 'factor' => $request->factor ,
                 'address' => $request->address ,
@@ -125,32 +129,6 @@ class OrderController extends Controller
                         'discount' => ($item->price) - ($item->final_price),
                         'total' => $product['final_price1']
                     ]);
-
-                if (DB::table('products')->where('id', $item->id)->first()->number == 0)
-                {
-                    DB::table('products')->where('id', $item->id)
-                        ->update([
-                            'number' => 0
-                        ]);
-                }
-                else
-                {
-                    if (($item->number) - ( $product['order_number']) < 0)
-                    {
-                        DB::table('products')->where('id', $item->id)
-                            ->update([
-                                'number' => 0 ,
-                            ]);
-                    }
-                    else
-                    {
-                        DB::table('products')->where('id' , $item->id)
-                            ->update([
-                                'number' => ($item->number) - ($product['order_number']) ,
-                                'sale' => ($item->sale) + ( $product['order_number'])
-                            ]);
-                    }
-                }
             }
         }
 
@@ -204,6 +182,7 @@ class OrderController extends Controller
                         'order' => $order ,
                         'user' => $order->user ,
                         'products' => $order->products ,
+                        'discount' => $order->discount ,
                         'check' => 1
                     ] , 200);
                 }
@@ -217,7 +196,8 @@ class OrderController extends Controller
                         'tracking_code' => $order->tracking_code ,
                         'order' => $order ,
                         'user' => $order->user ,
-                        'products' => $order->products
+                        'products' => $order->products ,
+                        'discount' => $order->discount
                     ] , 200);
                 }
 

@@ -589,7 +589,6 @@
                     } ,
                 })
                     .then(res => {
-                        console.log(res);
                         this.setting_data = res.data[0];
                     })
                     .catch(err => {
