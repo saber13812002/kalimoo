@@ -144,5 +144,7 @@ return array(
         "minimum_order_cost" => "حداقل قیمت سفارش" ,
         "price" => "قیمت" ,
         "phone_number" => "شماره موبایل" ,
+        "number" => "موجودی" ,
+        "discount" => "تخفیف" ,
     ),
 );

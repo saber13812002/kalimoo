@@ -20,15 +20,15 @@
                 </div>
             </div>
             <div class="col-xs col-sm col- col-md col-lg col-xl-6 show-product delete-padding">
-                <span class="tablinks" onclick="openCity(event, 'Vertical')" id="defaultOpen"><i class="fas fa-align-right"></i></span>
+                <span class="tablinks" @click="verticalOrHarizonal(1)" id="defaultOpen"><i class="fas fa-align-right"></i></span>
 
-                <span class="tablinks" onclick="openCity(event, 'Horizontal')"><i class="fas fa-align-justify"></i></span>
+                <span class="tablinks" @click="verticalOrHarizonal(2)"><i class="fas fa-align-justify"></i></span>
             </div>
         </div>
 
 
             <!------product-amudy------->
-            <div id="Vertical" class="col-xs col-sm col- col-md col-lg col-xl-12 all-product tabcontent delete-padding">
+            <div v-if="click === 1" id="Vertical" class="col-xs col-sm col- col-md col-lg col-xl-12 all-product tabcontent delete-padding">
                 <div class="col-xs col-sm col- col-md col-lg col-xl-12 product-list flex delete-padding table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl"
                      v-for="(item , index) in products" v-bind:key="item.id">
                     <div v-for="product in products[index]" class="col-xs col-sm col- col-md col-lg col-xl-3">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <!------product-amudy-responsive------->
-            <div id="Horizontal" class="col-xs col-sm col- col-md col-lg col-xl-12 product-list-Horizontal tabcontent delete-padding">
+            <div v-if="click === 2" id="Horizontal" class="col-xs col-sm col- col-md col-lg col-xl-12 product-list-Horizontal tabcontent delete-padding">
                 <!--1-->
                 <div class="col-xs col-sm col- col-md col-lg col-xl-12" v-for="item in pro" v-bind:key="item.id">
                     <div class="product-box-hover-Horizontal">
@@ -168,8 +168,6 @@
 
         <!--end-product-Horizontal-responsive-->
             <!-----end-product-amudy------->
-
-
         <div v-if="ok === 0" class="alert alert-danger">
             محصولی وجود ندارد
         </div>
@@ -288,18 +286,21 @@
                 pro: [] ,
                 ok: '' ,
                 brands: [] ,
-                baner: ''
+                baner: '' ,
+                click: 1 ,
             }
         } ,
 
         methods:{
+            verticalOrHarizonal(type) {
+                this.click = type;
+            },
             get_baner() {
                 axios({
                     url: '/api/baners' ,
                     method: 'get' ,
                 })
                     .then(res => {
-                        console.log(res);
                         this.baner = res.data.products_baner;
                     })
                     .catch(err => {
@@ -307,7 +308,6 @@
                     })
             } ,
             sent_to_card(product) {
-
                 let arr = JSON.parse(localStorage.getItem('order')) || [];
 
                 if (product.order_number)
@@ -422,7 +422,6 @@
                 })
                     .then(res => {
                         this.ok = 1;
-                        console.log(res);
                         this.products = res.data;
                         this.get_other_products(this.products)
                     })
@@ -443,7 +442,6 @@
                 })
                     .then(res => {
                         this.ok = 1;
-                        console.log(res);
                         this.products = res.data;
                         this.get_other_products(this.products)
                     })
@@ -470,7 +468,6 @@
                             this.$emit('BR' , this.brands);
                         });
             } ,
-
             productsByCat(id , param) {
                 axios({
                     url: `/api/filters/category/${id}/${param}` ,
@@ -504,7 +501,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>

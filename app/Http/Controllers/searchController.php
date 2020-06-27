@@ -59,10 +59,6 @@ class searchController extends Controller
                 ThirdCategory::where('secondary_category_id' , $id)->delete();
                 Product::where('secondary_category_id' , $id)->delete();
             }
-            if ($table === 'products')
-            {
-                Cache::forget('products');
-            }
             return 'this item is deleted successfully';
         }
 

@@ -88,15 +88,15 @@ class ProductController extends Controller
 
     public function index()
     {
-        return Cache::rememberForever('products' , function (){
-            return Product::latest('id')->get();
-        });
+        return Product::latest('id')->paginate(10);
     }
 
     public function store(Request $request)
     {
         $validata = Validator::make($request->all() , [
             'title' => 'required' ,
+            'number' => 'required|numeric|min:0' ,
+            'discount' => 'required|numeric|min:0|max:1' ,
             'third_category_id' => 'required' ,
             'price' => 'required' ,
             'product_img' => 'image|nullable|max:1999'

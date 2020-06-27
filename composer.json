@@ -19,7 +19,6 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "morilog/jalali": "3.*",
         "nicolaslopezj/searchable": "^1.13",
-        "predis/predis": "^1.1",
         "shetabit/payment": "^2.2"
     },
     "require-dev": {

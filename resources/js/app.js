@@ -16,9 +16,15 @@ Vue.use(VueRouter);
 import Toasted from 'vue-toasted';
 
 Vue.use(Toasted);
+
+import VueObserveVisibility from 'vue-observe-visibility'
+
+Vue.use(VueObserveVisibility);
 import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 Vue.component('date-picker', VuePersianDatetimePicker);
 import * as VueGoogleMaps from 'vue2-google-maps'
+
+
 
 Vue.use(VueGoogleMaps, {
     load: {

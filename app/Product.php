@@ -29,20 +29,4 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class);
     }
-
-    public static function boot()
-    {
-        parent::boot();
-        static::created(function (){
-            Cache::forget('products');
-        });
-
-        static::updated(function (){
-            Cache::forget('products');
-        });
-
-        static::deleted(function (){
-            Cache::forget('products');
-        });
-    }
 }

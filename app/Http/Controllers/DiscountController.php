@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Discount;
 use App\SpecialDiscount;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,6 @@ use Morilog\Jalali\Jalalian;
 
 class DiscountController extends Controller
 {
-
     public function check()
     {
         $discount = Discount::latest('id')->first();
@@ -97,7 +97,7 @@ class DiscountController extends Controller
     public function create(Request $request)
     {
         $validata = Validator::make($request->all() , [
-            'name' => 'required' ,
+            'name' => 'required|unique:discounts' ,
             'amount' => 'required' ,
             'expire' => 'required|date' ,
         ]);
@@ -128,5 +128,4 @@ class DiscountController extends Controller
 
         return response()->json($arr);
     }
-
 }

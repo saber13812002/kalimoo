@@ -37,6 +37,9 @@
                         </a>
                     </div>
                 </li>
+                <div style="text-align: center" v-if="products.length && loading" v-observe-visibility="visibilityChanged">
+                    <div class="lds-ellipsis"  ><div></div><div></div><div></div><div></div></div>
+                </div>
             </ol>
 
             <div v-if="ok === 0" class="alert alert-danger">
@@ -51,7 +54,7 @@
     export default {
         name: "products-list-content" ,
 
-        created() {
+        mounted() {
             this.showProducts();
         } ,
 
@@ -59,27 +62,51 @@
             return {
                 products: [] ,
                 query: '' ,
-                ok: ''
+                ok: '' ,
+                page: 1 ,
+                last_page: 0 ,
+                loading: true ,
             }
         } ,
 
         methods: {
-            showProducts() {
+             visibilityChanged (isVisible) {
+                if (!isVisible) return;
+                if (this.page <= this.last_page)
+                {
+                    this.showProducts();
+                }
+                else
+                {
+                    this.loading = false;
+                }
+
+            } ,
+             showProducts() {
                 axios({
-                    url: '/api/index' ,
+                    url: `/api/index?page=${this.page++}` ,
                     method: 'get' ,
                 })
                     .then(res => {
                         this.ok = 1;
-                        this.products = res.data;
+                        this.products = [...this.products,...res.data.data];
+                        this.last_page = res.data.last_page;
                     })
                     .catch(err => {
                         console.log(err.response);
                         this.ok = 0;
                     })
             } ,
-
-            search(table , param) {
+             search(table , param) {
+                 this.loading = false;
+                 if (this.query === "")
+                 {
+                     this.loading = true;
+                     this.page = 1;
+                     this.products = [];
+                     this.showProducts();
+                     return;
+                 }
                 axios({
                     url: `/api/search/${table}/${param}` ,
                     method: 'post' ,
@@ -96,7 +123,7 @@
                         this.ok = 0;
                     })
             } ,
-            delete_product(id) {
+             delete_product(id) {
                 if (confirm('آیا از حذف کردن این محصول مطمئن هستید؟؟؟'))
                 {
                     axios({
@@ -126,5 +153,60 @@
 </script>
 
 <style scoped>
+    .lds-ellipsis {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-ellipsis div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #1b73f4;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    .lds-ellipsis div:nth-child(1) {
+        left: 8px;
+        animation: lds-ellipsis1 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(2) {
+        left: 8px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(3) {
+        left: 32px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(4) {
+        left: 56px;
+        animation: lds-ellipsis3 0.6s infinite;
+    }
+    @keyframes lds-ellipsis1 {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @keyframes lds-ellipsis3 {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0);
+        }
+    }
+    @keyframes lds-ellipsis2 {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(24px, 0);
+        }
+    }
 
 </style>

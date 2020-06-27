@@ -84,7 +84,7 @@
                 price: '' ,
                 brand_id: '' ,
                 discount: 0 ,
-                number: 1 ,
+                number: 0 ,
                 img: '' ,
                 limit: '' ,
             }
